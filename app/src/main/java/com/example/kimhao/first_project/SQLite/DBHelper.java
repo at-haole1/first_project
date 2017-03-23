@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.kimhao.first_project.model.ItemUsers;
+import com.example.kimhao.first_project.model.ItemUser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,16 +41,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // TODO: 17/03/2017
     //insert data Contact
-    public boolean addContact(ItemUsers itemUsers){
+    public boolean addContact(ItemUser itemUser){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        if (itemUsers.getImgAva()!=null || itemUsers.getImgAva()!="") {
-            contentValues.put(CONTACTS_COLUMN_IMAGE, itemUsers.getImgAva());
+        if (itemUser.getImgAva()!=null || itemUser.getImgAva()!="") {
+            contentValues.put(CONTACTS_COLUMN_IMAGE, itemUser.getImgAva());
         }
-        Log.d(CONTACTS_COLUMN_IMAGE, "addContact: "+itemUsers.getImgAva());
-        contentValues.put(CONTACTS_COLUMN_NAME,itemUsers.getName());
-        contentValues.put(CONTACTS_COLUMN_ADDRESS, itemUsers.getAddr());
-        contentValues.put(CONTACTS_COLUMN_AGE, itemUsers.getAge());
+        Log.d(CONTACTS_COLUMN_IMAGE, "addContact: "+ itemUser.getImgAva());
+        contentValues.put(CONTACTS_COLUMN_NAME, itemUser.getName());
+        contentValues.put(CONTACTS_COLUMN_ADDRESS, itemUser.getAddr());
+        contentValues.put(CONTACTS_COLUMN_AGE, itemUser.getAge());
         db.insert(CONTACTS_TABLE,null,contentValues);
         db.close();
         return true;
@@ -66,39 +66,39 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // TODO: 17/03/2017
     //update data table
-    public boolean updateContact(ItemUsers itemUsers){
+    public boolean updateContact(ItemUser itemUser){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CONTACTS_COLUMN_IMAGE,itemUsers.getImgAva());
-        contentValues.put(CONTACTS_COLUMN_NAME,itemUsers.getName());
-        contentValues.put(CONTACTS_COLUMN_AGE, itemUsers.getAge());
-        contentValues.put(CONTACTS_COLUMN_ADDRESS,itemUsers.getAddr());
-        db.update(CONTACTS_TABLE,contentValues,"id = ?",new String[]{String.valueOf(itemUsers.getId())});
+        contentValues.put(CONTACTS_COLUMN_IMAGE, itemUser.getImgAva());
+        contentValues.put(CONTACTS_COLUMN_NAME, itemUser.getName());
+        contentValues.put(CONTACTS_COLUMN_AGE, itemUser.getAge());
+        contentValues.put(CONTACTS_COLUMN_ADDRESS, itemUser.getAddr());
+        db.update(CONTACTS_TABLE,contentValues,"id = ?",new String[]{String.valueOf(itemUser.getId())});
         return  true;
     }
 
     //delete data table
-     public Integer deleteContact (ItemUsers itemUsers){
+     public Integer deleteContact (ItemUser itemUser){
          SQLiteDatabase db = this.getWritableDatabase();
-         return db.delete(CONTACTS_TABLE,"id= ?",new String[]{String.valueOf(itemUsers.getId())});
+         return db.delete(CONTACTS_TABLE,"id= ?",new String[]{String.valueOf(itemUser.getId())});
      }
 
-    public ArrayList<ItemUsers> getAllContacts(){
-        ArrayList<ItemUsers> array_list = new ArrayList<>();
+    public ArrayList<ItemUser> getAllContacts(){
+        ArrayList<ItemUser> array_list = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from contacts",null);
 
         if (cursor.moveToFirst()){
             do{
-                ItemUsers itemUsers = new ItemUsers();
-                itemUsers.setId(cursor.getString(0));
-                itemUsers.setImgAva(cursor.getString(1));
-                itemUsers.setName(cursor.getString(2));
-                itemUsers.setAge(cursor.getString(3));
-                itemUsers.setAddr(cursor.getString(4));
+                ItemUser itemUser = new ItemUser();
+                itemUser.setId(cursor.getString(0));
+                itemUser.setImgAva(cursor.getString(1));
+                itemUser.setName(cursor.getString(2));
+                itemUser.setAge(cursor.getString(3));
+                itemUser.setAddr(cursor.getString(4));
 
-                array_list.add(itemUsers);
+                array_list.add(itemUser);
             }while (cursor.moveToNext());
         }
         cursor.close();

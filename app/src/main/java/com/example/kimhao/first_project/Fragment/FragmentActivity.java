@@ -1,38 +1,77 @@
 package com.example.kimhao.first_project.Fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.kimhao.first_project.R;
 
 public class FragmentActivity extends AppCompatActivity {
-    private Button btn1,btn2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        btn1 = (Button)findViewById(R.id.btnFragment1);
-        btn2 = (Button)findViewById(R.id.btnFragment2);
+
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager_ID);
+        this.addPages(viewPager);
+
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tab_ID);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnTabSelectedListener(listener(viewPager));
+
+
+
     }
-    public void selectFrag(View view){
-        Fragment fr;
-        if (view == findViewById(R.id.btnFragment1)){
-            fr = new Fragment_one();
-        }else {
-            fr = new Fragment_two();
+
+    private void addPages(ViewPager pager){
+        MyGragPagerAdapter adapter =new MyGragPagerAdapter(getSupportFragmentManager());
+        adapter.addPage(new CrimeFragment());
+        adapter.addPage(new DramaFragment());
+        adapter.addPage(new DocumentaryFragment());
+
+        pager.setAdapter(adapter);
+    }
+
+    private TabLayout.OnTabSelectedListener listener(final ViewPager pager){
+        return new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                pager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        };
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
         }
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_place,fr);
-        fragmentTransaction.commit();
+        return super.onOptionsItemSelected(item);
     }
 
 }
