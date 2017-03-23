@@ -7,32 +7,32 @@
     android:layout_marginRight="10dp"
     android:background="#b4f1c4">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgAvaAdd"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imgAva"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/ic_person"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imgAvaAdd"
-        android:id="@+id/edtNameAdd"
+        android:layout_toRightOf="@+id/imgAva"
+        android:id="@+id/tvName"
         android:text="Name"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imgAvaAdd"
-        android:layout_below="@+id/edtNameAdd"
-        android:id="@+id/edtAgeAdd"
+        android:layout_toRightOf="@+id/imgAva"
+        android:layout_below="@+id/tvName"
+        android:id="@+id/tvAge"
         android:text="Age"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/imgAvaAdd"
-        android:layout_below="@+id/edtAgeAdd"
-        android:id="@+id/edtAddrAdd"
+        android:layout_toRightOf="@+id/imgAva"
+        android:layout_below="@+id/tvAge"
+        android:id="@+id/tvAddr"
         android:text="Address"/>
     <ImageView
         android:id="@+id/imgRibbon"
@@ -40,20 +40,20 @@
         android:layout_height="30dp"
         android:layout_toLeftOf="@+id/imgCusTrip"
         android:background="@drawable/ic_fav_invisible"
-        android:layout_below="@+id/edtNameAdd"
+        android:layout_below="@+id/tvName"
         />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgCusTrip"
-        android:layout_below="@+id/edtNameAdd"
+        android:layout_below="@+id/tvName"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_label_outline_black_24dp"
         />
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/imgAvaAdd"
+        android:layout_below="@+id/imgAva"
         android:layout_marginTop="3dp"
         android:background="#ffffff"
         android:id="@+id/view"></View>

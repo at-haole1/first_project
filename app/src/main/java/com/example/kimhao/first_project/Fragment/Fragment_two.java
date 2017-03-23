@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.kimhao.firstproject.R;
+import com.example.kimhao.first_project.R;
 
 /**
  * Created by KimHao on 22/03/2017.

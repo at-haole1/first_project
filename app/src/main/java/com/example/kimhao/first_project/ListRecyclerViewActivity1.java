@@ -22,7 +22,7 @@ import com.example.kimhao.first_project.model.ItemUsers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewActivity1 extends AppCompatActivity {
+public class ListRecyclerViewActivity1 extends AppCompatActivity {
     RecyclerView mRecyclerView;
     private int visibleThreshold = 5;
     private int lastVisibleItem, totalItemCount;
@@ -53,6 +53,7 @@ public class RecyclerViewActivity1 extends AppCompatActivity {
         mDBHelper = new DBHelper(this);
         mListItemUsers.addAll(mDBHelper.getAllContacts());
         Log.d("Size list: ", "initView: "+mListItemUsers.size()+"");
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -60,11 +61,11 @@ public class RecyclerViewActivity1 extends AppCompatActivity {
         proGress = (RelativeLayout) findViewById(R.id.cusPro);
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapterRecyclerView = new AdapterRecyclerView(mListItemUsers, RecyclerViewActivity1.this, new AdapterRecyclerView.OnBundleTransfer() {
+        mAdapterRecyclerView = new AdapterRecyclerView(mListItemUsers, ListRecyclerViewActivity1.this, new AdapterRecyclerView.OnBundleTransfer() {
 
             @Override
             public void onClick(ItemUsers itemUsers) {
-                Intent i = new Intent(RecyclerViewActivity1.this, RecyclerViewActivity2.class);
+                Intent i = new Intent(ListRecyclerViewActivity1.this, DetailRecyclerViewActivity2.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("Data", (Parcelable) itemUsers);
                 Log.d("toi muon biet", "onClick: " + itemUsers.getName());
@@ -86,7 +87,7 @@ public class RecyclerViewActivity1 extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.itemAdd:
-                Intent intent =  new Intent(getApplicationContext(), RecyclerViewActivity2.class);
+                Intent intent =  new Intent(getApplicationContext(), DetailRecyclerViewActivity2.class);
                 intent.putExtra("key","AddContact");
                 startActivity(intent);
                 return true;

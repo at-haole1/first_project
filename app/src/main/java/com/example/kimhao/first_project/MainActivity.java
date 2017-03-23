@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnRecyclerview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,RecyclerViewActivity1.class);
+                Intent i = new Intent(MainActivity.this,ListRecyclerViewActivity1.class);
                 startActivity(i);
             }
         });

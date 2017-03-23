@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.kimhao.first_project.model.ItemUsers;
 
@@ -43,7 +44,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean addContact(ItemUsers itemUsers){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CONTACTS_COLUMN_IMAGE,itemUsers.getImgAva());
+        if (itemUsers.getImgAva()!=null || itemUsers.getImgAva()!="") {
+            contentValues.put(CONTACTS_COLUMN_IMAGE, itemUsers.getImgAva());
+        }
+        Log.d(CONTACTS_COLUMN_IMAGE, "addContact: "+itemUsers.getImgAva());
         contentValues.put(CONTACTS_COLUMN_NAME,itemUsers.getName());
         contentValues.put(CONTACTS_COLUMN_ADDRESS, itemUsers.getAddr());
         contentValues.put(CONTACTS_COLUMN_AGE, itemUsers.getAge());

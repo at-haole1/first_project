@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import com.example.kimhao.firstproject.R;
+import com.example.kimhao.first_project.R;
 
 import java.util.ArrayList;
 
