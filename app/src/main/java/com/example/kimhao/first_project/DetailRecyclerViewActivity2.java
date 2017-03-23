@@ -13,12 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kimhao.first_project.SQLite.DBHelper;
-import com.example.kimhao.first_project.model.ItemUsers;
+import com.example.kimhao.first_project.model.ItemUser;
 import com.squareup.picasso.Picasso;
 
 public class DetailRecyclerViewActivity2 extends AppCompatActivity {
 
-    private ItemUsers mItemUsersGet;
+    private ItemUser mItemUserGet;
     private TextView mTvAge, mTvAddr,mTvName;
     private ImageView mImgAva;
     private DBHelper mDbHelper;
@@ -96,17 +96,17 @@ public class DetailRecyclerViewActivity2 extends AppCompatActivity {
             mBtnDelete.setVisibility(View.GONE);
         }else{
 
-            mItemUsersGet = getIntent().getBundleExtra("intent").getParcelable("Data");
+            mItemUserGet = getIntent().getBundleExtra("intent").getParcelable("Data");
             Log.e("Size list get", "changeData: " );
             mBtnSave.setVisibility(View.GONE);
             mBtnEdit.setVisibility(View.VISIBLE);
             mBtnDelete.setVisibility(View.VISIBLE);
-            Log.d("SetText:  ", "changeData: "+mItemUsersGet.getName());
-            mTvName.setText(mItemUsersGet.getName());
-            mTvAge.setText(mItemUsersGet.getAge());
-            mTvAddr.setText(mItemUsersGet.getAddr());
-            //mPath = mItemUsersGet.getImgAva().toString();
-            Picasso.with(this).load(mItemUsersGet.getImgAva()).into(mImgAva);
+            Log.d("SetText:  ", "changeData: "+ mItemUserGet.getName());
+            mTvName.setText(mItemUserGet.getName());
+            mTvAge.setText(mItemUserGet.getAge());
+            mTvAddr.setText(mItemUserGet.getAddr());
+            //mPath = mItemUserGet.getImgAva().toString();
+            Picasso.with(this).load(mItemUserGet.getImgAva()).into(mImgAva);
         }
     }
 
@@ -119,7 +119,7 @@ public class DetailRecyclerViewActivity2 extends AppCompatActivity {
                 Log.d("Tôi muốn biết:2 ", "onClick: "+mTvName.getText());
                 Log.d("Tôi muốn biết:3 ", "onClick: "+mTvAge.getText());
                 Log.d("Tôi muốn biết:4 ", "onClick: "+mTvAddr.getText());
-                if (mDbHelper.addContact(new ItemUsers(
+                if (mDbHelper.addContact(new ItemUser(
                         mPath,mTvName.getText().toString(),
                         mTvAge.getText().toString(),
                         mTvAddr.getText().toString())))
@@ -137,10 +137,11 @@ public class DetailRecyclerViewActivity2 extends AppCompatActivity {
         mBtnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mDbHelper.updateContact(new ItemUsers(mItemUsersGet.getId(),
+                if (mDbHelper.updateContact(new ItemUser(mItemUserGet.getId(),
                         mPath,mTvName.getText().toString(),
                         mTvAge.getText().toString(),
                         mTvAddr.getText().toString()))){
+                    Log.e("Log e: ", "onClick: "+ mItemUserGet.getId()+"");
                     Toast.makeText(DetailRecyclerViewActivity2.this,"Edit Contact Sucessful",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(DetailRecyclerViewActivity2.this,"Edit Contact Error",Toast.LENGTH_SHORT).show();
@@ -154,7 +155,7 @@ public class DetailRecyclerViewActivity2 extends AppCompatActivity {
         mBtnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDbHelper.deleteContact(new ItemUsers(mItemUsersGet.getId(),
+                mDbHelper.deleteContact(new ItemUser(mItemUserGet.getId(),
                         mPath,mTvName.getText().toString(),
                         mTvAge.getText().toString(),
                         mTvAddr.getText().toString()));

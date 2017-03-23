@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by KimHao on 13/03/2017.
  */
 
-public class ItemUsers extends ItemList implements Parcelable {
+public class ItemUser extends ItemList implements Parcelable {
     String id;
     String Name, Addr;
     String ImgAva;
@@ -16,17 +16,17 @@ public class ItemUsers extends ItemList implements Parcelable {
     int ImgTrip;
     int ImgRibbon;
 
-    public ItemUsers() {
+    public ItemUser() {
     }
 
-    public ItemUsers(String imgAva,String name,String age, String addr) {
+    public ItemUser(String imgAva, String name, String age, String addr) {
         Name = name;
         Addr = addr;
         ImgAva = imgAva;
         Age = age;
     }
 
-    public ItemUsers(String id, String imgAva, String name, String age, String addr) {
+    public ItemUser(String id, String imgAva, String name, String age, String addr) {
         this.id = id;
         Name = name;
         Addr = addr;
@@ -98,11 +98,11 @@ public class ItemUsers extends ItemList implements Parcelable {
         ImgRibbon = imgRibbon;
     }
 
-    public static Creator<ItemUsers> getCREATOR() {
+    public static Creator<ItemUser> getCREATOR() {
         return CREATOR;
     }
 
-    protected ItemUsers(Parcel in) {
+    protected ItemUser(Parcel in) {
         id = in.readString();
         Name = in.readString();
         Addr = in.readString();
@@ -130,15 +130,15 @@ public class ItemUsers extends ItemList implements Parcelable {
         return 0;
     }
 
-    public static final Creator<ItemUsers> CREATOR = new Creator<ItemUsers>() {
+    public static final Creator<ItemUser> CREATOR = new Creator<ItemUser>() {
         @Override
-        public ItemUsers createFromParcel(Parcel in) {
-            return new ItemUsers(in);
+        public ItemUser createFromParcel(Parcel in) {
+            return new ItemUser(in);
         }
 
         @Override
-        public ItemUsers[] newArray(int size) {
-            return new ItemUsers[size];
+        public ItemUser[] newArray(int size) {
+            return new ItemUser[size];
         }
     };
 

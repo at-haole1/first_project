@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import com.example.kimhao.first_project.Adapter.AdapterRecyclerView;
 import com.example.kimhao.first_project.SQLite.DBHelper;
 import com.example.kimhao.first_project.model.ItemList;
-import com.example.kimhao.first_project.model.ItemUsers;
+import com.example.kimhao.first_project.model.ItemUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,11 @@ public class ListRecyclerViewActivity1 extends AppCompatActivity {
         handler = new Handler();
 
         initView();
+        if (mListItemUsers.size() < 0){
+            loadData();
+        }
+
+        Log.d("Danh sách mới: ", "onCreate: "+mListItemUsers.size()+"");
     }
 
     public void initView() {
@@ -64,11 +69,11 @@ public class ListRecyclerViewActivity1 extends AppCompatActivity {
         mAdapterRecyclerView = new AdapterRecyclerView(mListItemUsers, ListRecyclerViewActivity1.this, new AdapterRecyclerView.OnBundleTransfer() {
 
             @Override
-            public void onClick(ItemUsers itemUsers) {
+            public void onClick(ItemUser itemUser) {
                 Intent i = new Intent(ListRecyclerViewActivity1.this, DetailRecyclerViewActivity2.class);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("Data", (Parcelable) itemUsers);
-                Log.d("toi muon biet", "onClick: " + itemUsers.getName());
+                bundle.putParcelable("Data", (Parcelable) itemUser);
+                Log.d("toi muon biet", "onClick: " + itemUser.getName());
                 i.putExtra("intent", bundle);
                 startActivityForResult(i, 1);
 
@@ -141,30 +146,36 @@ public class ListRecyclerViewActivity1 extends AppCompatActivity {
 
 
 
-//    private void loadData() {
-//
-//        for (int i = ival; i < loadLimit; i++) {
-//            if (i%5==0){
-//                mListItemUsers.add(new ItemTitle("ahihi"));
-//                ival++;
-//            }else {
-//                mListItemUsers.add(new ItemUsers("ItemUsers"+ " " + (i) ,"Đà Nẵng",R.drawable.ic_person,"20",false,
-//                        R.drawable.ic_label_outline_black_24dp, R.drawable.ic_fav_invisible));
-//                ival++;
-//            }
-//        }
-//        mAdapterRecyclerView.notifyDataSetChanged();
-//    }
-//
-//    private void loadMoreData() {
-//        loadLimit = ival + 20;
-//        for (int i = ival;i<loadLimit; i++){
-//            mListItemUsers.add(new ItemUsers("ItemUsers"+ " " + (i) ,"Đà Nẵng",R.drawable.ic_person,"20",false,
-//                    R.drawable.ic_label_outline_black_24dp, R.drawable.ic_fav_invisible));
-//            ival++;
-//        }
-//        mAdapterRecyclerView.notifyDataSetChanged();
-//    }
+    private void loadData() {
+
+        for (int i = ival; i < loadLimit; i++) {
+            if (i%2==0){
+                mListItemUsers.add(new ItemUser(R.drawable.ic_person+"","User "+i+"",""+i,
+                        "Đà Nẵng"));
+                Log.d("Load ra danh sach nao: ", "loadData: "+R.drawable.ic_person+"");
+            }else {
+                mListItemUsers.add(new ItemUser(R.drawable.ic_user + "", "User " + i + "", "" + i,
+                        "Đà Nẵng"));
+            }
+            ival++;
+        }
+        mAdapterRecyclerView.notifyDataSetChanged();
+    }
+
+    private void loadMoreData() {
+        loadLimit = ival + 20;
+        for (int i = ival; i < loadLimit; i++) {
+            if (i % 2 == 0){
+                mListItemUsers.add(new ItemUser(R.drawable.ic_person+"","User "+i+"",""+i,
+                        "Đà Nẵng"));
+            }else {
+                mListItemUsers.add(new ItemUser(R.drawable.ic_user + "", "User " + i + "", "" + i,
+                        "Đà Nẵng"));
+            }
+            ival++;
+        }
+        mAdapterRecyclerView.notifyDataSetChanged();
+    }
 
 
 }

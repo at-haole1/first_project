@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.kimhao.first_project.R;
 import com.example.kimhao.first_project.model.ItemList;
 import com.example.kimhao.first_project.model.ItemTitle;
-import com.example.kimhao.first_project.model.ItemUsers;
+import com.example.kimhao.first_project.model.ItemUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -72,8 +72,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
             }
         }
         if (viewHolder instanceof  ViewHolderItemUser){
-            if (ob instanceof ItemUsers){
-                ItemUsers item = (ItemUsers) ob;
+            if (ob instanceof ItemUser){
+                ItemUser item = (ItemUser) ob;
                 ((ViewHolderItemUser)viewHolder).mTvName.setText(item.getName());
                 ((ViewHolderItemUser)viewHolder).mTvAge.setText(item.getAge());
                 ((ViewHolderItemUser)viewHolder).mTvAddr.setText(item.getAddr());
@@ -84,20 +84,19 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
                     //Log.d("Log đường link", "onBindViewHolder: "+item.getImgAva());
                     Picasso.with(context)
                             .load(item.getImgAva())
-
                             .into(((ViewHolderItemUser)viewHolder).mImgAva);
                 }else {
                     ((ViewHolderItemUser)viewHolder).mImgAva.setImageResource(R.drawable.ic_person);
 
                 }
                 Log.d("Log đường link", "onBindViewHolder: "+item.getImgAva());
-                if (((ItemUsers) ob).isCheck())
+                if (((ItemUser) ob).isCheck())
                 {
                     ((ViewHolderItemUser)viewHolder).mImgRibbon.setBackgroundResource(R.drawable.ic_fav_visible);
                 }else {
                     ((ViewHolderItemUser)viewHolder).mImgRibbon.setBackgroundResource(R.drawable.ic_fav_invisible);
                 }
-                ((ViewHolderItemUser)viewHolder).mImgTrip.setImageResource(((ItemUsers) ob).getImgTrip());
+                ((ViewHolderItemUser)viewHolder).mImgTrip.setImageResource(((ItemUser) ob).getImgTrip());
             }
         }
 
@@ -127,7 +126,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    ItemUsers itemUsers = (ItemUsers)mItemUserses.get(getLayoutPosition());
+//                    ItemUser itemUsers = (ItemUser)mItemUserses.get(getLayoutPosition());
 //                    itemUsers.setCheck(!itemUsers.isCheck());
 //                    notifyItemChanged(getLayoutPosition());
 //                }
@@ -135,7 +134,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   mListener.onClick((ItemUsers) mItemUserses.get(getAdapterPosition()));
+                   mListener.onClick((ItemUser) mItemUserses.get(getAdapterPosition()));
                 }
             });
         }
@@ -153,6 +152,6 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
 //    }
 
         public interface OnBundleTransfer{
-            void onClick(ItemUsers itemUsers);
+            void onClick(ItemUser itemUser);
         }
 }
