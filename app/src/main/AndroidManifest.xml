@@ -40,7 +40,7 @@
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RecyclerViewActivity1"
+            android:name=".ListRecyclerViewActivity1"
             android:label="@string/title_activity_recycler_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -48,7 +48,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".RecyclerViewActivity2"
+            android:name=".DetailRecyclerViewActivity2"
             android:label="@string/title_activity_data__transfer__recycler_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

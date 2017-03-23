@@ -31,7 +31,7 @@ public class FragmentActivity extends AppCompatActivity {
         }
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_place,fr);
+        fragmentTransaction.add(R.id.fragment_place,fr);
         fragmentTransaction.commit();
     }
 

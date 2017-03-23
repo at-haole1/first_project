@@ -16,7 +16,6 @@ import com.example.kimhao.first_project.model.ItemTitle;
 import com.example.kimhao.first_project.model.ItemUsers;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,13 +78,19 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
                 ((ViewHolderItemUser)viewHolder).mTvAge.setText(item.getAge());
                 ((ViewHolderItemUser)viewHolder).mTvAddr.setText(item.getAddr());
                 if (!TextUtils.isEmpty(item.getImgAva())){
+//                    Picasso.with(context)
+//                            .load(new File(item.getImgAva()))
+//                            .into(((ViewHolderItemUser)viewHolder).mImgAva);
+                    //Log.d("Log đường link", "onBindViewHolder: "+item.getImgAva());
                     Picasso.with(context)
-                            .load(new File(item.getImgAva()))
-                            .error(R.drawable.ic_person)
+                            .load(item.getImgAva())
+
                             .into(((ViewHolderItemUser)viewHolder).mImgAva);
                 }else {
                     ((ViewHolderItemUser)viewHolder).mImgAva.setImageResource(R.drawable.ic_person);
+
                 }
+                Log.d("Log đường link", "onBindViewHolder: "+item.getImgAva());
                 if (((ItemUsers) ob).isCheck())
                 {
                     ((ViewHolderItemUser)viewHolder).mImgRibbon.setBackgroundResource(R.drawable.ic_fav_visible);
@@ -111,10 +116,10 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public ViewHolderItemUser(final View itemView) {
             super(itemView);
-            mTvName = (TextView) itemView.findViewById(R.id.edtNameAdd);
-            mTvAge = (TextView) itemView.findViewById(R.id.edtAgeAdd);
-            mTvAddr = (TextView) itemView.findViewById(R.id.edtAddrAdd);
-            mImgAva = (ImageView) itemView.findViewById(R.id.imgAvaAdd);
+            mTvName = (TextView) itemView.findViewById(R.id.tvName);
+            mTvAge = (TextView) itemView.findViewById(R.id.tvAge);
+            mTvAddr = (TextView) itemView.findViewById(R.id.tvAddr);
+            mImgAva = (ImageView) itemView.findViewById(R.id.imgAva);
             mImgRibbon = (ImageView)itemView.findViewById(R.id.imgRibbon);
             mImgTrip = (ImageView) itemView.findViewById(R.id.imgCusTrip);
             //progressBar = (ProgressBar)itemView.findViewById(R.id.progressbar);

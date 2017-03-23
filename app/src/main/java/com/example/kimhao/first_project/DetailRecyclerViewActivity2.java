@@ -14,8 +14,9 @@ import android.widget.Toast;
 
 import com.example.kimhao.first_project.SQLite.DBHelper;
 import com.example.kimhao.first_project.model.ItemUsers;
+import com.squareup.picasso.Picasso;
 
-public class RecyclerViewActivity2 extends AppCompatActivity {
+public class DetailRecyclerViewActivity2 extends AppCompatActivity {
 
     private ItemUsers mItemUsersGet;
     private TextView mTvAge, mTvAddr,mTvName;
@@ -50,7 +51,7 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
                 Intent intentGallerry = new Intent();
                 intentGallerry.setType("image/*");
                 intentGallerry.addCategory(Intent.CATEGORY_OPENABLE);
-                Log.d("Tôi muốn biết", "onClick: dsgfhjghkghfgd");
+                Log.d("Tôi muốn biết", "onClick: Chọn ảnh được chưa");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     intentGallerry.setAction(Intent.ACTION_OPEN_DOCUMENT);
                     startActivityForResult(intentGallerry, SELECT_PICTURE);
@@ -70,16 +71,16 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
             if (requestCode == SELECT_PICTURE) {
                 // Get the url from data
                 String imagePath = data.getData().toString();
-                Log.d("aaa", "onActivityResult: " + imagePath);
+                Log.d("Đường dẫn ảnh", "onActivityResult: " + imagePath);
                 if (imagePath != null) {
                     // Get the path from the Uri
                     mPath = imagePath;
                     // Set the image in ImageView
                     mImgAva.setImageURI(data.getData());
-                    Log.d("aaaaa", "onActivityResult: " + mPath);
+                    Log.d("Đường dẫn ảnh", "onActivityResult: " + mPath);
                 }else {
                     mImgAva.setImageResource(R.drawable.ic_person);
-                    Log.d("aaaaa", "onActivityResult: " + mPath);
+                    Log.d("Đường dẫn ảnh", "onActivityResult: " + mPath);
                 }
             }
         }
@@ -94,6 +95,7 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
             mBtnEdit.setVisibility(View.GONE);
             mBtnDelete.setVisibility(View.GONE);
         }else{
+
             mItemUsersGet = getIntent().getBundleExtra("intent").getParcelable("Data");
             Log.e("Size list get", "changeData: " );
             mBtnSave.setVisibility(View.GONE);
@@ -103,7 +105,8 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
             mTvName.setText(mItemUsersGet.getName());
             mTvAge.setText(mItemUsersGet.getAge());
             mTvAddr.setText(mItemUsersGet.getAddr());
-            //Picasso.with(this).load(new File(mItemUsersGet.getImgAva())).into(mImgAva);
+            //mPath = mItemUsersGet.getImgAva().toString();
+            Picasso.with(this).load(mItemUsersGet.getImgAva()).into(mImgAva);
         }
     }
 
@@ -111,6 +114,7 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
         mBtnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Log.d("Tôi muốn biết:1 ", "onClick: "+mPath);
                 Log.d("Tôi muốn biết:2 ", "onClick: "+mTvName.getText());
                 Log.d("Tôi muốn biết:3 ", "onClick: "+mTvAge.getText());
@@ -121,11 +125,11 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
                         mTvAddr.getText().toString())))
 
                 {
-                    Toast.makeText(RecyclerViewActivity2.this,"Add Contact Sucessful",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailRecyclerViewActivity2.this,"Add Contact Sucessful",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(RecyclerViewActivity2.this,"Add Contact Error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailRecyclerViewActivity2.this,"Add Contact Error",Toast.LENGTH_SHORT).show();
                 }
-                Intent i = new Intent(RecyclerViewActivity2.this,RecyclerViewActivity1.class);
+                Intent i = new Intent(DetailRecyclerViewActivity2.this,ListRecyclerViewActivity1.class);
                 startActivity(i);
             }
         });
@@ -137,11 +141,12 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
                         mPath,mTvName.getText().toString(),
                         mTvAge.getText().toString(),
                         mTvAddr.getText().toString()))){
-                    Toast.makeText(RecyclerViewActivity2.this,"Edit Contact Sucessful",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailRecyclerViewActivity2.this,"Edit Contact Sucessful",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(RecyclerViewActivity2.this,"Edit Contact Error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetailRecyclerViewActivity2.this,"Edit Contact Error",Toast.LENGTH_SHORT).show();
                 }
-                Intent i = new Intent(RecyclerViewActivity2.this,RecyclerViewActivity1.class);
+                finish();
+                Intent i = new Intent(DetailRecyclerViewActivity2.this,ListRecyclerViewActivity1.class);
                 startActivity(i);
             }
         });
@@ -153,7 +158,8 @@ public class RecyclerViewActivity2 extends AppCompatActivity {
                         mPath,mTvName.getText().toString(),
                         mTvAge.getText().toString(),
                         mTvAddr.getText().toString()));
-                Intent i = new Intent(RecyclerViewActivity2.this,RecyclerViewActivity1.class);
+                finish();
+                Intent i = new Intent(DetailRecyclerViewActivity2.this,ListRecyclerViewActivity1.class);
                 startActivity(i);
             }
         });

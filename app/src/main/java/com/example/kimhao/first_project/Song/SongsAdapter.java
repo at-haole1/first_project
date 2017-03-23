@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.kimhao.firstproject.R;
+import com.example.kimhao.first_project.R;
 
 import java.util.ArrayList;
 
