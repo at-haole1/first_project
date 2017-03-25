@@ -81,7 +81,8 @@
             android:name=".Activity.AfterLoginActivity"
             android:label="@string/title_activity_after_login"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity android:name=".Activity.UserDetailActivity" />
+        <activity android:name=".Activity.FragmentActivity"></activity>
     </application>
 
 </manifest>
