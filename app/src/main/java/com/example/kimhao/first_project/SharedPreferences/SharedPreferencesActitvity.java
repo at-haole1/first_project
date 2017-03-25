@@ -58,7 +58,7 @@ public class SharedPreferencesActitvity extends AppCompatActivity {
 
     public void doSave(View view){
 
-        // File chia sẻ sử dụng trong nội bộ ứng dụng, hoặc các ứng dụng được chia sẻ cùng User.
+        // File chia sẻ sử dụng trong nội bộ ứng dụng, hoặc các ứng dụng được chia sẻ cùng ItemUser.
         SharedPreferences sharedPreferences = this.getSharedPreferences("gameSetting",Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
