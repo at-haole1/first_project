@@ -89,58 +89,36 @@ public class ItemUser extends ItemList implements Parcelable {
         this.id = id;
     }
 
-    /**
-     * @return Bitmap
-     */
     public String getImage() {
         return image;
     }
 
-    /**
-     * @param image
-     */
     public void setImage(String image) {
         this.image = image;
     }
 
-    /**
-     * @return String name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return String age
-     */
     public String getAge() {
         return age;
     }
 
-    /**
-     * @param age
-     */
+
     public void setAge(String age) {
         this.age = age;
     }
 
-    /**
-     * @return String address
-     */
+
     public String getAddress() {
         return address;
     }
 
-    /**
-     * @param address
-     */
     public void setAddress(String address) {
         this.address = address;
     }
