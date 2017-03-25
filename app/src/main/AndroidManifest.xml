@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -36,27 +36,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".Activity.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ListRecyclerViewActivity1"
+            android:name=".Activity.ListUserActivity"
             android:label="@string/title_activity_recycler_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Login"
+            android:name=".Activity.ActivityLogin"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DetailRecyclerViewActivity2"
+            android:name=".Activity.AddEditActivity"
             android:label="@string/title_activity_data__transfer__recycler_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Phone_Call"
+            android:name=".Activity.PhoneCallActivity"
             android:label="@string/title_activity_phone__call"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Mentor_Tai"
+            android:name=".Activity.MentorTaiActivity"
             android:label="@string/title_activity_mentor__tai"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -78,13 +78,9 @@
             android:label="@string/title_activity_storage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AfterLoginActivity"
+            android:name=".Activity.AfterLoginActivity"
             android:label="@string/title_activity_after_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Fragment.FragmentActivity"
-            android:label="@string/title_activity_fragment"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 

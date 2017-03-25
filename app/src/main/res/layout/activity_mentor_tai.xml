@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.kimhao.first_project.Activity.MainActivity">
+    tools:context="com.example.kimhao.first_project.Activity.MentorTaiActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -31,66 +31,68 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:scrollbars="vertical">
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnLogin"
-            android:layout_centerHorizontal="true"
-            android:text="Login"/>
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnRecyclerview"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnLogin"
-            android:text="RecyclerView"/>
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnPhoneCall"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnRecyclerview"
-            android:text="Phone Call"
-            />
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMMentorTai"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnPhoneCall"
-            android:text="Mentor_Tai"
-            />
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSQLDB"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnMMentorTai"
-            android:text="SQLite Database"
-            />
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSharedPreferences"
-            android:layout_below="@+id/btnSQLDB"
-            android:text="SharedPreferences"/>
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnStorage"
-            android:layout_below="@+id/btnSharedPreferences"
-            android:text="Storage"/>
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnFragment"
-            android:layout_below="@+id/btnStorage"
-            android:text="Fragment"/>
+            android:text="Call"
+            android:id="@+id/btnCall"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Messenger"
+            android:id="@+id/btnMessenger"
+            android:layout_below="@id/btnCall"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mail"
+            android:id="@+id/btnMail"
+            android:layout_below="@id/btnMessenger"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="vnexpress.net"
+            android:id="@+id/btnWeb"
+            android:layout_below="@id/btnMail"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Google Play Store"
+            android:id="@+id/btnCHPlay"
+            android:layout_below="@id/btnWeb"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Google Map"
+            android:id="@+id/btnMap"
+            android:layout_below="@id/btnCHPlay"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Picture"
+            android:id="@+id/btnPicture"
+            android:layout_below="@id/btnMap"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Camera"
+            android:id="@+id/btnCamera"
+            android:layout_below="@id/btnPicture"/>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgPickPic"
+            android:layout_below="@+id/btnCamera"/>
     </RelativeLayout>
-
-
 
 
 </android.support.design.widget.CoordinatorLayout>
