@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.kimhao.first_project.Alarm.AlarmActivity;
+
 import com.example.kimhao.first_project.BroadcastReceiver.BroadcastReceiverActivity;
 import com.example.kimhao.first_project.R;
 
@@ -16,7 +16,7 @@ import com.example.kimhao.first_project.Storage.StorageActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button mBtnLogin, mBtnRecyclerview, mMentorTai,mBtnPhoneCall,mBtnSharedPreferences,mBtnStorage;
-    private Button mBtnFragment, mBtnService, mBtnReceiver, mBtnAlarm;
+    private Button mBtnFragment, mBtnService, mBtnReceiver, mBtnAlarm,mBtnSending;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnService = (Button) findViewById(R.id.btnService);
         mBtnReceiver = (Button) findViewById(R.id.btnReceiver);
         mBtnAlarm = (Button) findViewById(R.id.btnAlarm);
+        mBtnSending = (Button) findViewById(R.id.btnSending);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,10 +99,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        mBtnAlarm.setOnClickListener(new View.OnClickListener() {
+
+        mBtnSending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, AlarmActivity.class);
+                Intent i =new Intent(MainActivity.this,SendingActivity.class);
                 startActivity(i);
             }
         });

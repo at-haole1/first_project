@@ -80,6 +80,12 @@
             android:id="@+id/btnAlarm"
             android:layout_below="@+id/btnReceiver"
             android:text="Alarm"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSending"
+            android:layout_below="@+id/btnAlarm"
+            android:text="Sending"/>
 
     </RelativeLayout>
 </LinearLayout>
