@@ -9,24 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.kimhao.first_project.Adapter.UserViewPagerAdapter;
-import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
-import com.example.kimhao.first_project.SQLiteData.DBHelper;
-
-import java.util.ArrayList;
 
 /**
  * Created by KimHao on 23/03/2017.
  */
 
 public class ViewPagerFragment extends Fragment {
-    private DBHelper mDBHelper;
-    private ArrayList<ItemUser> mListItemUsers = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.view_pager_fragment,null);
         ViewPager mViewPager = (ViewPager) v.findViewById(R.id.viewPagerUser);
+        mViewPager.setClipToPadding(false);
+        mViewPager.setPageMargin(20);
         UserViewPagerAdapter mUserViewPagerAdapter = new UserViewPagerAdapter(getChildFragmentManager(),v.getContext());
         mViewPager.setAdapter(mUserViewPagerAdapter);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -45,8 +42,7 @@ public class ViewPagerFragment extends Fragment {
 
             }
         });
-
-
+        mUserViewPagerAdapter.notifyDataSetChanged();
         return v;
     }
 }

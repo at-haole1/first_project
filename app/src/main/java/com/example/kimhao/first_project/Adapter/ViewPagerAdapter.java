@@ -8,7 +8,7 @@ import com.example.kimhao.first_project.Activity.ListUserFragmentActivity;
 import com.example.kimhao.first_project.Fragment.ViewPagerFragment;
 
 /**
- * Created by KimHao on 25/03/2017.
+ * Created by KimHao on 24/03/2017.
  */
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -36,5 +36,10 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return mNumberTab;
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
     }
 }

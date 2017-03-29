@@ -5,16 +5,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-
 import com.example.kimhao.first_project.Adapter.ViewPagerAdapter;
 import com.example.kimhao.first_project.R;
 
 public class FragmentActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
     private ViewPager mViewPager;
-    private TabLayout.Tab Home;
-    private TabLayout.Tab ListUser;
-    private TabLayout.Tab User;
-
+    TabLayout.Tab Home;
+    TabLayout.Tab ListUser;
+    TabLayout.Tab User;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +41,6 @@ public class FragmentActivity extends AppCompatActivity implements TabLayout.OnT
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override

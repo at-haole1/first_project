@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -35,11 +34,9 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         boolean result = checkLogin();
         if (result) {
-            Intent i = new Intent(ActivityLogin.this, AfterLoginActivity.class);
+            Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
             startActivity(i);
             finish();
         } else {
@@ -55,7 +52,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
                 @Override
                 public void onClick(View v) {
 
-                    Intent i = new Intent(ActivityLogin.this, AfterLoginActivity.class);
+                    Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
 
                     SharedPreferences shared = getSharedPreferences("MyShare", MODE_PRIVATE);
                     SharedPreferences.Editor editor = shared.edit();

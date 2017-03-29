@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class ItemUserFragment extends Fragment {
     private ArrayList<ItemUser> mListItemUsers = new ArrayList<>();
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.item_list_user,null);
         mImgAva = (ImageView) v.findViewById(R.id.imgAva);
         mTvName = (TextView) v.findViewById(R.id.tvName);
@@ -64,10 +65,12 @@ public class ItemUserFragment extends Fragment {
         mImgFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mImgFav.setSelected(mItemUser.isFavorite());
+                mImgFav.setSelected(!mItemUser.isFavorite());
                 mItemUser.setFavorite(!mItemUser.isFavorite());
+                Log.d("dfdfdfdfdf", "onClick: ");
             }
         });
+
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,5 +92,6 @@ public class ItemUserFragment extends Fragment {
         itemUserFragment.setArguments(bundle);
         return itemUserFragment;
     }
+
 }
 
