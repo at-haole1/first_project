@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import static android.app.Activity.RESULT_OK;
 public class ListUserFragmentActivity extends Fragment implements UserAdapter.MyOnClickListener {
     private UserAdapter mUserAdapter;
     private ArrayList<ItemUser> mListUser;
-    private final int REQUES_CODE = 4;
+    private final int REQUES_CODE = 411;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class ListUserFragmentActivity extends Fragment implements UserAdapter.My
         bundle.putParcelable("userclick",user);
         intent.putExtra("user",bundle);
         intent.putExtra("Pos",position);
+        Log.d("position", "onClickListener: "+position);
         startActivityForResult(intent,REQUES_CODE);
     }
 
@@ -68,11 +70,12 @@ public class ListUserFragmentActivity extends Fragment implements UserAdapter.My
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUES_CODE && resultCode == RESULT_OK && null != data){
-            boolean check = data.getBooleanExtra("isCheck",false);
+            boolean check = data.getBooleanExtra("check",false);
             int pos = data.getIntExtra("Pos",-1);
+            Log.d("gggggggggggggggggggg", "onActivityResult: "+pos);
             ItemUser user = mListUser.get(pos);
             user.setFavorite(check);
-            if (pos != 0){
+            if (pos != -1){
                 mListUser.set(pos,mListUser.get(pos));
                 mUserAdapter.notifyDataSetChanged();
             }

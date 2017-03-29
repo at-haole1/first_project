@@ -9,12 +9,13 @@
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/at"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -24,14 +25,11 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:scheme="tel" />
             </intent-filter>
         </activity>
@@ -60,16 +58,6 @@
             android:label="@string/title_activity_mentor__tai"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Song.SongActivity"
-            android:label="@string/title_activity_song"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <service
-            android:name=".Song.MusicService"
-            android:enabled="true"
-            android:exported="true" />
-
-        <activity
             android:name=".SharedPreferences.SharedPreferencesActitvity"
             android:label="@string/title_activity_shared_preferences"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -78,11 +66,31 @@
             android:label="@string/title_activity_storage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activity.AfterLoginActivity"
-            android:label="@string/title_activity_after_login"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.UserDetailActivity" />
-        <activity android:name=".Activity.FragmentActivity"></activity>
+            android:name=".Activity.UserDetailActivity" />
+        <activity
+            android:name=".Activity.LoginSuccess"
+            android:label="LoginSuccess"/>
+        <activity
+            android:name=".Activity.FragmentActivity"
+            android:label="Fragment"/>
+        <activity
+            android:name=".Service.ServiceActivity"
+            android:label="Serice"/>
+        <service
+            android:name=".Service.MyService"
+            ></service>
+        <receiver
+            android:name=".BroadcastReceiver.MyBroadcastReceiver">
+            <intent-filter >
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <action android:name="android.intent.action.BATTERY_OKAY" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity"/>
+        <activity android:name=".Alarm.AlarmActivity"/>
+        <receiver android:name=".Alarm.AlarmReceiver"/>
     </application>
 
 </manifest>

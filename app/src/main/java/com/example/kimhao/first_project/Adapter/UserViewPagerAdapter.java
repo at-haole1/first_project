@@ -36,4 +36,9 @@ public class UserViewPagerAdapter extends FragmentStatePagerAdapter {
         mListItemUsers =mDataBaseUser.getAllUsers();
         return mListItemUsers.size();
     }
+
+    @Override
+    public float getPageWidth(int position) {
+        return 0.9f;
+    }
 }

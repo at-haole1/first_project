@@ -3,6 +3,7 @@ package com.example.kimhao.first_project.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,12 +42,14 @@ public class UserDetailActivity extends AppCompatActivity {
                     mImgFav.setSelected(!isCheck);
                     isCheck = true;
                 }
+                Log.d("aaaaaaaa", "onClick: "+isCheck);
             }
         });
 
         ItemUser user = getIntent().getBundleExtra("user").getParcelable("userclick");
-        mPos = getIntent().getIntExtra("Pos",0);
+        mPos = getIntent().getIntExtra("Pos",-1);
         isCheck = user.isFavorite();
+        Log.d("nhan ", "onCreate: 23232 " + mPos);
         Picasso.with(this)
                 .load(user.getImage())
                 .fit()
@@ -55,15 +58,18 @@ public class UserDetailActivity extends AppCompatActivity {
         mTvName.setText(user.getName());
         mTvAge.setText(user.getAge());
         mTvAddr.setText(user.getAddress());
+        mImgFav.setSelected(user.isFavorite());
     }
 
     @Override
     public void onBackPressed() {
         Intent intent = new Intent();
         intent.putExtra("check",isCheck);
-        if (mPos != 0){
+        Log.d("select fav: ", "onBackPressed: "+isCheck);
+        if (mPos != -1){
             intent.putExtra("Pos",mPos);
         }
+        Log.d("Tra ", "onBackPressed: "+mPos);
         setResult(RESULT_OK,intent);
         finish();
     }

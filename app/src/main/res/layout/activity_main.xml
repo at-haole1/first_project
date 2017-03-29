@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.kimhao.first_project.Activity.MainActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
+    android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/content_main"
         android:layout_width="match_parent"
@@ -55,7 +38,7 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnMMentorTai"
+            android:id="@+id/btnMentorTai"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/btnPhoneCall"
             android:text="Mentor_Tai"
@@ -63,16 +46,8 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSQLDB"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnMMentorTai"
-            android:text="SQLite Database"
-            />
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/btnSharedPreferences"
-            android:layout_below="@+id/btnSQLDB"
+            android:layout_below="@+id/btnMentorTai"
             android:text="SharedPreferences"/>
 
         <Button
@@ -87,10 +62,24 @@
             android:id="@+id/btnFragment"
             android:layout_below="@+id/btnStorage"
             android:text="Fragment"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnService"
+            android:layout_below="@+id/btnFragment"
+            android:text="Service"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnReceiver"
+            android:layout_below="@+id/btnService"
+            android:text="Receiver"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAlarm"
+            android:layout_below="@+id/btnReceiver"
+            android:text="Alarm"/>
 
     </RelativeLayout>
-
-
-
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
