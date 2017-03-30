@@ -16,8 +16,8 @@
 
     <application
         android:allowBackup="true"
-        android:label="Ruby"
         android:icon="@mipmap/ruby"
+        android:label="Ruby"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -31,17 +31,23 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="tel" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
@@ -100,17 +106,19 @@
         </receiver>
 
         <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity" />
-
-        <activity
-            android:name=".Activity.SendingActivity">
+        <activity android:name=".Activity.SendingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DemoToolbarActivity"></activity>
     </application>
 
 </manifest>

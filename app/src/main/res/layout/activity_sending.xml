@@ -5,30 +5,26 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
 tools:context="com.example.kimhao.first_project.Activity.SendingActivity">
-
-<Button
-    android:id="@+id/btnSendText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignRight="@+id/textView1"
-    android:layout_below="@+id/textView1"
-    android:text="Send Text" />
-
-<Button
-    android:id="@+id/btnSendImage"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignRight="@+id/textView1"
-    android:layout_below="@+id/textView1"
-    android:text="Send Image" />
-
-<ImageView
-    android:id="@+id/imgView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_above="@+id/textView1"
-    android:layout_alignLeft="@+id/btnSendText"
-    android:layout_marginBottom="68dp"
-    android:src="@drawable/favorite" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtTextSend"/>
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/textView1"
+        android:layout_alignLeft="@+id/btnSendText"
+        android:layout_marginBottom="68dp"
+        android:src="@drawable/favorite"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="Send"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

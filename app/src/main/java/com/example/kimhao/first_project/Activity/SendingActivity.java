@@ -6,21 +6,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.kimhao.first_project.R;
 
 public class SendingActivity extends AppCompatActivity {
-    public static final String ACTION_TEXT = "Action_text";
-    public static final String ACTION_PICTURE = "Action_picture";
-
+    public static final String ACTION_SEND_BROADCAST = "ActionSend";
 
     private static final int SELECT_PICTURE = 1;
     private String mSelectImagePath;
     private ImageView mImageView;
+    private EditText mEdtText;
+    private Uri mSelectImageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +29,10 @@ public class SendingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sending);
 
         mImageView = (ImageView) findViewById(R.id.imgView);
-        Button btnSendText  = (Button) findViewById(R.id.btnSendText);
-        btnSendText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendTextIntent = new Intent();
-                sendTextIntent.setAction(ACTION_TEXT);
-                sendTextIntent.putExtra("mytext",
-                        "This is my text to send");
-                sendTextIntent.putExtra("MyKey","This is second my text to send using my key");
-                sendBroadcast(sendTextIntent);
-            }
-        });
+        mEdtText  = (EditText) findViewById(R.id.edtTextSend);
+        Button btnSend  = (Button) findViewById(R.id.btnSend);
 
-        Button btnSendImage = (Button) findViewById(R.id.btnSendImage);
-        btnSendImage.setOnClickListener(new View.OnClickListener() {
+        mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sendImageIntent = new Intent();
@@ -51,30 +41,26 @@ public class SendingActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(sendImageIntent,"Select Picture"),SELECT_PICTURE);
             }
         });
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(ACTION_SEND_BROADCAST);
+                sendIntent.putExtra("mytext",mEdtText.getText());
+                sendIntent.putExtra("mypicture",mSelectImageUri.getPath());
+                Log.e("mytext", "onClick: "+mEdtText.getText());
+                Log.e("mypicture", "onClick: "+mSelectImageUri.getPath());
+                sendBroadcast(sendIntent);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK){
-            if (requestCode == SELECT_PICTURE){
-                Uri selectImageUri = data.getData();
-                mSelectImagePath = getPath(selectImageUri);
-
-                //System.out.println("Image Path: "+mSelectImagePath);
-                mImageView.setImageURI(selectImageUri);
-                //Toast.makeText(this, , Toast.LENGTH_SHORT).show();
-                sendImage(selectImageUri);
-            }
+        if (resultCode == RESULT_OK && requestCode == SELECT_PICTURE){
+                mSelectImageUri = data.getData();
+                mImageView.setImageURI(mSelectImageUri);
         }
-    }
-
-    void sendImage(Uri selectedImageUri){
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(ACTION_PICTURE);
-        shareIntent.putExtra("sendpicture",selectedImageUri);
-        Toast.makeText(this, selectedImageUri.getPath(), Toast.LENGTH_SHORT).show();
-        //shareIntent.setType("image/*");
-        sendBroadcast(shareIntent);
     }
 
     public String getPath(Uri uri){

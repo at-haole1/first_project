@@ -77,15 +77,14 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAlarm"
+            android:id="@+id/btnSending"
             android:layout_below="@+id/btnReceiver"
-            android:text="Alarm"/>
+            android:text="Sending"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSending"
-            android:layout_below="@+id/btnAlarm"
-            android:text="Sending"/>
-
+            android:id="@+id/btnToolbar"
+            android:layout_below="@+id/btnSending"
+            android:text="Toolbar"/>
     </RelativeLayout>
 </LinearLayout>
