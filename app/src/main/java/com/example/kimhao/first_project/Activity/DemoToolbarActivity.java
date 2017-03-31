@@ -1,4 +1,4 @@
-package com.example.kimhao.first_project;
+package com.example.kimhao.first_project.Activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.kimhao.first_project.Activity.AlertDiaFragment;
+import com.example.kimhao.first_project.R;
 
 public class DemoToolbarActivity extends AppCompatActivity implements AlertDiaFragment.EditTextListener {
     private TextView mTvToolBar;
