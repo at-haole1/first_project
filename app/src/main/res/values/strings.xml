@@ -28,4 +28,7 @@
     <string name="off">Off</string>
     <string name="on">On</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consequat eu sem, interdum nam a vel. Diam urna in fermentum, vivamus fusce adipiscing mi. Urna libero amet euismod vulputate porttitor, malesuada tortor metus interdum, blandit tincidunt amet sollicitudin dui imperdiet, dolor in, pellentesque hendrerit. Aliquam quam et pariatur rerum, ipsum consequat, quis in.</string>
+
 </resources>
