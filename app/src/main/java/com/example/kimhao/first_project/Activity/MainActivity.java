@@ -8,7 +8,7 @@ import android.widget.Button;
 
 
 import com.example.kimhao.first_project.BroadcastReceiver.BroadcastReceiverActivity;
-import com.example.kimhao.first_project.DemoToolbarActivity;
+import com.example.kimhao.first_project.Maps.MapsActivity;
 import com.example.kimhao.first_project.R;
 
 import com.example.kimhao.first_project.Service.ServiceActivity;
@@ -17,7 +17,7 @@ import com.example.kimhao.first_project.Storage.StorageActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button mBtnLogin, mBtnRecyclerview, mMentorTai,mBtnPhoneCall,mBtnSharedPreferences,mBtnStorage;
-    private Button mBtnFragment, mBtnService, mBtnReceiver, mBtnToolbar,mBtnSending;
+    private Button mBtnFragment, mBtnService, mBtnReceiver, mBtnToolbar,mBtnSending, mBtnMap;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnReceiver = (Button) findViewById(R.id.btnReceiver);
         mBtnSending = (Button) findViewById(R.id.btnSending);
         mBtnToolbar = (Button) findViewById(R.id.btnToolbar);
+        mBtnMap = (Button) findViewById(R.id.btnMap);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +113,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, DemoToolbarActivity.class);
+                startActivity(i);
+            }
+        });
+        mBtnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(i);
             }
         });
