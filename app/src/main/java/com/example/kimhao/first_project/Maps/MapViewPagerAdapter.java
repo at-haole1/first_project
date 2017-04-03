@@ -5,7 +5,6 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kimhao.first_project.Maps.model.MyLocation;
@@ -42,8 +41,6 @@ public class MapViewPagerAdapter extends PagerAdapter {
     public View instantiateItem(ViewGroup container, int position) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.row_map_pager, null);
-
-        LinearLayout lnr_main = (LinearLayout) itemView.findViewById(R.id.lnr_main);
         TextView tv_name = (TextView) itemView.findViewById(R.id.tv_name);
         TextView tvLatitude = (TextView) itemView.findViewById(R.id.tvLatitude);
         TextView tvLongitude = (TextView) itemView.findViewById(R.id.tvLongitude);
@@ -57,5 +54,7 @@ public class MapViewPagerAdapter extends PagerAdapter {
 
         return itemView;
     }
+
+
 
 }
