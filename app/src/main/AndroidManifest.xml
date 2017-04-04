@@ -20,8 +20,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ruby"
-        android:label="Ruby"
+        android:icon="@mipmap/demokit_splash"
+        android:label="AT_Inter"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -29,8 +29,8 @@
             android:value="AIzaSyDLn2sTfBYdCPMd6jw-TChESvc14KmOXQg"  />
 
         <activity
-            android:name=".Maps.MapsActivity"
-            android:label="@string/title_activity_main"
+            android:name="AsyncTaskActivity"
+            android:label="AT_Inter"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -127,7 +127,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.DemoToolbarActivity" />
-
+        <activity android:name=".Maps.MapsActivity"/>
 
     </application>
 </manifest>

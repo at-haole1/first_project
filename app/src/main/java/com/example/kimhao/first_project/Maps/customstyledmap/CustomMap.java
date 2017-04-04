@@ -66,6 +66,7 @@ public class CustomMap {
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(locationPoint));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(20), 2000, null);
 
+//        googleMap.setOnCameraIdleListener();
         googleMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
             @Override
             public void onCameraChange(CameraPosition cameraPosition) {
