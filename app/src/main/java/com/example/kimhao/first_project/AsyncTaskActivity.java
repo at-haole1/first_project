@@ -53,7 +53,7 @@ public class AsyncTaskActivity extends AppCompatActivity {
             }
         });
     }
-    class DownloadTask extends AsyncTask<String, Integer, String> {
+    private class DownloadTask extends AsyncTask<String, Integer, String> {
         File input_file;
         ProgressDialog progressDialog;
         @Override
@@ -71,8 +71,8 @@ public class AsyncTaskActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             String path = params[0];
-            Log.e("aaa", "onProgressUpdate: "+path.toString());
-            int file_length = 0;
+            Log.e("aaa", "onProgressUpdate: "+path);
+            int file_length;
             try {
 
                 URL url = new URL(path);
@@ -92,7 +92,7 @@ public class AsyncTaskActivity extends AppCompatActivity {
                 while ((count=inputStream.read(data)) != -1){
                     total += count;
                     outputStream.write(data,0,count);
-                    int progress = (int) total*1000/file_length;
+                    int progress = total *1000/file_length;
                     publishProgress(progress);
                 }
                 inputStream.close();

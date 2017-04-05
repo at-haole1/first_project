@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,11 +22,8 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
     public final String USER_NAME = "admin";
     public final String PASSWORD = "123";
     private EditText mEdtUser, mEdtPass;
-    private Button mBtnLogin;
     private TextView mTvReg;
     private ImageView mImgEye;
-    private CheckBox mCkbRemeber;
-    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -42,7 +38,7 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
         } else {
             mEdtUser = (EditText) findViewById(R.id.edtUser);
             mEdtPass = (EditText) findViewById(R.id.edtPass);
-            mBtnLogin = (Button) findViewById(R.id.btnLogin);
+            Button mBtnLogin = (Button) findViewById(R.id.btnLogin);
             mTvReg = (TextView) findViewById(R.id.tvReg);
             mImgEye = (ImageView) findViewById(R.id.imgEye);
 

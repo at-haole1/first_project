@@ -17,14 +17,6 @@ public class ItemUser extends ItemList implements Parcelable {
     private boolean isFavorite;
     private final int VIEW_ITEM = 1;
 
-    /**
-     * Constructor
-     *
-     * @param image
-     * @param name
-     * @param age
-     * @param address
-     */
     public ItemUser(String image, String name, String age, String address, int favorite, boolean isFavorite) {
         this.image = image;
         this.name = name;
@@ -108,7 +100,6 @@ public class ItemUser extends ItemList implements Parcelable {
     public String getAge() {
         return age;
     }
-
 
     public void setAge(String age) {
         this.age = age;
