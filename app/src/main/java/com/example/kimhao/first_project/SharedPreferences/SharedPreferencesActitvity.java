@@ -38,7 +38,7 @@ public class SharedPreferencesActitvity extends AppCompatActivity {
     }
 
     private void loadGameSetting(){
-        SharedPreferences sharedPreferences = (SharedPreferences) this.getSharedPreferences("gameSetting", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("gameSetting", Context.MODE_PRIVATE);
         if (sharedPreferences != null){
             int brightness = sharedPreferences.getInt("brightness",90);
             int sound = sharedPreferences.getInt("sound",95);

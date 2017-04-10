@@ -23,7 +23,6 @@ import com.example.kimhao.first_project.R;
 public class MentorTaiActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnCall, btnMessenger, btnMail, btnWeb, btnCHPlay, btnMap, btnSelect, btnCamera;
     ImageView imgPic;
-    final static int RESULT_LOAD_IMAGE=1;
     private static final int CAMERA_REQUEST= 1888;
     private static final int SELECT_PICTURE = 100;
 

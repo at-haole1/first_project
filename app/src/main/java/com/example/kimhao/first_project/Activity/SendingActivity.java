@@ -18,7 +18,6 @@ public class SendingActivity extends AppCompatActivity {
     public static final String ACTION_SEND_BROADCAST = "ActionSend";
 
     private static final int SELECT_PICTURE = 1;
-    private String mSelectImagePath;
     private ImageView mImageView;
     private EditText mEdtText;
     private Uri mSelectImageUri;

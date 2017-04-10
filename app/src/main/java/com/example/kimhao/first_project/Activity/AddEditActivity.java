@@ -10,15 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.kimhao.first_project.SQLiteData.DataBaseUser;
-import com.example.kimhao.first_project.R;
 import com.example.kimhao.first_project.Model.ItemUser;
+import com.example.kimhao.first_project.R;
+import com.example.kimhao.first_project.SQLiteData.DataBaseUser;
 import com.squareup.picasso.Picasso;
 
 public class AddEditActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView mTvTitle;
+
     private ImageView mImgAvatar;
     private EditText mEdtName;
     private EditText mEdtAge;
