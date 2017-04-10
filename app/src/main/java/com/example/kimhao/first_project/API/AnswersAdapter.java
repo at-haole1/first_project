@@ -2,29 +2,34 @@ package com.example.kimhao.first_project.API;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kimhao.first_project.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by KimHao on 05/04/2017.
  */
 
-public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHolder>  {
-    private List<Item> mItems;
+public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHolder> implements Filterable {
+    private ArrayList<Item> mArrayItems;
+    private ArrayList<Item> mFilterList;
     private Context mContext;
     private PostItemListener mItemListener;
-    public AnswersAdapter(Context context, List<Item> posts, PostItemListener postItemListener){
+    public AnswersAdapter(Context context, ArrayList<Item> posts, PostItemListener postItemListener){
         this.mContext = context;
-        this.mItems = posts;
+        this.mArrayItems = posts;
         this.mItemListener = postItemListener;
+        mFilterList = posts;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -39,7 +44,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        Item item = mItems.get(i);
+        Item item = mFilterList.get(i);
         Picasso.with(mContext)
                 .load(item.getOwner().getProfileImage())
                 .into(viewHolder.mImgApi);
@@ -50,7 +55,39 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return mItems.size();
+        return mFilterList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()){
+                    mFilterList = mArrayItems;
+                }else {
+                    ArrayList<Item> filteredList = new ArrayList<>();
+                    for (Item item : mArrayItems){
+                        if (item.getOwner().getDisplayName().contains(charString)){
+                            filteredList.add(item);
+                            Log.e("cccc", "performFiltering: "+filteredList.size() );
+                        }
+                    }
+                    mFilterList = filteredList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mFilterList;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults results) {
+                mFilterList = (ArrayList<Item>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -75,13 +112,14 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
         }
     }
     private Item getItem(int adapterPosition) {
-        return mItems.get(adapterPosition);
+        return mFilterList.get(adapterPosition);
     }
     public interface PostItemListener{
         void onPostClick(long id);
     }
-    public void updateAnswers(List<Item> items) {
-        mItems = items;
+    public void updateAnswers(ArrayList<Item> items) {
+        mFilterList = items;
         notifyDataSetChanged();
+        Log.e("aaaaa", "updateAnswers: "+mFilterList.size() );
     }
 }

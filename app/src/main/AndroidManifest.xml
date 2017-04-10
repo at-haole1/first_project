@@ -29,7 +29,7 @@
             android:value="AIzaSyDLn2sTfBYdCPMd6jw-TChESvc14KmOXQg"  />
 
         <activity
-            android:name=".API.ApiActivity"
+            android:name=".API.ApiActivity_"
             android:label="AT_Inter"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -128,6 +128,6 @@
         </activity>
         <activity android:name=".Activity.DemoToolbarActivity" />
         <activity android:name=".Maps.MapsActivity"/>
-        <activity android:name="AsyncTaskActivity"/>
+        <activity android:name=".Activity.AsyncTaskActivity"/>
     </application>
 </manifest>

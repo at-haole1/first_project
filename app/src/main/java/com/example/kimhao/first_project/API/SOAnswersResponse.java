@@ -3,7 +3,7 @@ package com.example.kimhao.first_project.API;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by KimHao on 05/04/2017.
@@ -13,7 +13,7 @@ public class SOAnswersResponse {
 
     @SerializedName("items")
     @Expose
-    private List<Item> items = null;
+    private ArrayList<Item> items = null;
     @SerializedName("has_more")
     @Expose
     private Boolean hasMore;
@@ -24,11 +24,11 @@ public class SOAnswersResponse {
     @Expose
     private Integer quotaRemaining;
 
-    public List<Item> getItems() {
+    public ArrayList<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(ArrayList<Item> items) {
         this.items = items;
     }
 

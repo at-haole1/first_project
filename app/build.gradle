@@ -18,12 +18,14 @@ android {
         }
     }
 }
-
+def AAVersion = '4.3.0'
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile files('libs/recyclerview.jar')
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile files('libs/picasso-2.5.2.jar')

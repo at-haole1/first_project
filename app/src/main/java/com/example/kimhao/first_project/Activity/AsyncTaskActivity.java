@@ -1,4 +1,4 @@
-package com.example.kimhao.first_project;
+package com.example.kimhao.first_project.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.kimhao.first_project.R;
 
 import java.io.BufferedInputStream;
 import java.io.File;
