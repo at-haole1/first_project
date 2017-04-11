@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity
 public class SharedPreferencesActitvity extends AppCompatActivity {
     private SeekBar seekBarSound;
     private SeekBar seekBarBrightness;

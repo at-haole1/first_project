@@ -15,7 +15,9 @@ import android.widget.ImageView;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
 
+@EActivity
 public class PhoneCallActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText mEdtNumber;
     private String mStrNumber = "+84 ";

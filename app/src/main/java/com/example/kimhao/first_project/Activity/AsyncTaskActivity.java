@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kimhao.first_project.R;
+
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -30,31 +31,27 @@ import java.net.URLConnection;
 /**
  * Created by KimHao on 04/04/2017.
  */
-
+@EActivity(R.layout.activity_asynctask)
 public class AsyncTaskActivity extends AppCompatActivity {
     String url = "https://i.ytimg.com/vi/TqHwZl033Z8/maxresdefault.jpg";
     //String url = "https://wallpaperscraft.com/image/coffee_crockery_cafe_114567_3840x2160.jpg";
+
+    @ViewById(R.id.btnDownload)
     Button btnDownload;
+
+    @ViewById(R.id.imgDownload)
     ImageView imgDownload;
+
+    @ViewById(R.id.tvStatus)
     TextView tvStatus;
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_asynctask);
 
-        btnDownload = (Button) findViewById(R.id.btnDownload);
-        imgDownload = (ImageView) findViewById(R.id.imgDownload);
-        tvStatus = (TextView) findViewById(R.id.tvStatus);
-
-        btnDownload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvStatus.setText("Downloading....");
-                DownloadTask downloadTask = new DownloadTask();
-                downloadTask.execute(url);
-            }
-        });
+    @Click(R.id.btnDownload)
+    void clickbtnDownload(){
+        tvStatus.setText("Downloading....");
+        DownloadTask downloadTask = new DownloadTask();
+        downloadTask.execute(url);
     }
+
     private class DownloadTask extends AsyncTask<String, Integer, String> {
         File input_file;
         ProgressDialog progressDialog;

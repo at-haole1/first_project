@@ -1,129 +1,160 @@
 package com.example.kimhao.first_project.Activity;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 
-
-import com.example.kimhao.first_project.BroadcastReceiver.BroadcastReceiverActivity;
-import com.example.kimhao.first_project.Maps.MapsActivity;
+import com.example.kimhao.first_project.API.ApiActivity_;
+import com.example.kimhao.first_project.BroadcastReceiver.BroadcastReceiverActivity_;
+import com.example.kimhao.first_project.Maps.MapsActivity_;
 import com.example.kimhao.first_project.R;
+import com.example.kimhao.first_project.Service.ServiceActivity_;
+import com.example.kimhao.first_project.SharedPreferences.SharedPreferencesActitvity_;
+import com.example.kimhao.first_project.Storage.StorageActivity_;
 
-import com.example.kimhao.first_project.Service.ServiceActivity;
-import com.example.kimhao.first_project.SharedPreferences.SharedPreferencesActitvity;
-import com.example.kimhao.first_project.Storage.StorageActivity;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
+@EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
-    private Button mBtnLogin, mBtnRecyclerview, mMentorTai,mBtnPhoneCall,mBtnSharedPreferences,mBtnStorage;
-    private Button mBtnFragment, mBtnService, mBtnReceiver, mBtnToolbar,mBtnSending, mBtnMap;
-    @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    @ViewById(R.id.btnLogin)
+    Button mBtnLogin;
 
-        mBtnLogin = (Button) findViewById(R.id.btnLogin);
-        mBtnRecyclerview = (Button) findViewById(R.id.btnRecyclerview);
-        mBtnPhoneCall = (Button) findViewById(R.id.btnPhoneCall);
-        mMentorTai = (Button) findViewById(R.id.btnMentorTai);
-        mBtnSharedPreferences = (Button)findViewById(R.id.btnSharedPreferences);
-        mBtnStorage = (Button)findViewById(R.id.btnStorage);
-        mBtnFragment = (Button) findViewById(R.id.btnFragment);
-        mBtnService = (Button) findViewById(R.id.btnService);
-        mBtnReceiver = (Button) findViewById(R.id.btnReceiver);
-        mBtnSending = (Button) findViewById(R.id.btnSending);
-        mBtnToolbar = (Button) findViewById(R.id.btnToolbar);
-        mBtnMap = (Button) findViewById(R.id.btnMap);
-        mBtnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,ActivityLogin.class);
-                startActivity(i);
-            }
-        });
-        mBtnRecyclerview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,ListUserActivity.class);
-                startActivity(i);
-            }
-        });
+    @ViewById(R.id.btnRecyclerview)
+    Button mBtnRecyclerview;
 
-        mBtnPhoneCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,PhoneCallActivity.class);
-                startActivity(i);
-            }
-        });
+    @ViewById(R.id.btnMentorTai)
+    Button mMentorTai;
 
-        mMentorTai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,MentorTaiActivity.class);
-                startActivity(i);
-            }
-        });
+    @ViewById(R.id.btnPhoneCall)
+    Button mBtnPhoneCall;
 
-        mBtnSharedPreferences.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, SharedPreferencesActitvity.class);
-                startActivity(i);
-            }
-        });
-        mBtnStorage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, StorageActivity.class);
-                startActivity(i);
-            }
-        });
-        mBtnFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, FragmentActivity.class);
-                startActivity(i);
-            }
-        });
-        mBtnService.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ServiceActivity.class);
-                startActivity(i);
-            }
-        });
-        mBtnReceiver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, BroadcastReceiverActivity.class);
-                startActivity(i);
-            }
-        });
+    @ViewById(R.id.btnSharedPreferences)
+    Button mBtnSharedPreferences;
 
-        mBtnSending.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i =new Intent(MainActivity.this,SendingActivity.class);
-                startActivity(i);
-            }
-        });
-        mBtnToolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, DemoToolbarActivity.class);
-                startActivity(i);
-            }
-        });
-        mBtnMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(i);
-            }
-        });
+    @ViewById(R.id.btnStorage)
+    Button mBtnStorage;
+
+    @ViewById(R.id.btnFragment)
+    Button mBtnFragment;
+
+    @ViewById(R.id.btnService)
+    Button mBtnService;
+
+    @ViewById(R.id.btnReceiver)
+    Button mBtnReceiver;
+
+    @ViewById(R.id.btnToolbar)
+    Button mBtnToolbar;
+
+    @ViewById(R.id.btnSending)
+    Button mBtnSending;
+
+    @ViewById(R.id.btnMap)
+    Button mBtnMap;
+
+    @ViewById(R.id.btnAPI)
+    Button mBtnAPI;
+
+    @ViewById(R.id.btnAsync)
+    Button mBtnAsync;
+
+    @Click(R.id.btnLogin)
+        void clickBtnLogin() {
+            ActivityLogin_.intent(this)
+
+                    .start();
     }
 
+    @Click(R.id.btnRecyclerview)
+        void clickBtnRecyclerview() {
+            ListUserActivity_.intent(this)
+
+                    .start();
+    }
+
+    @Click(R.id.btnMentorTai)
+    void clickBtnMentorTai() {
+        MentorTaiActivity_.intent(this)
+//                .myMentorTaiActivity("start list MentorTaiActivity")
+                .start();
+    }
+
+    @Click(R.id.btnPhoneCall)
+    void clickBtnPhoneCall() {
+        PhoneCallActivity_.intent(this)
+//                .myPhoneCallActivity("start list PhoneCallActivity")
+                .start();
+    }
+
+    @Click(R.id.btnSharedPreferences)
+    void clickbtnSharedPreferences() {
+        SharedPreferencesActitvity_.intent(this)
+//                .mySharedPreferencesActitvity_("start list SharedPreferencesActitvity")
+                .start();
+    }
+
+    @Click(R.id.btnStorage)
+    void clickbtnStorage() {
+        StorageActivity_.intent(this)
+//                .myStorageActivity("start list StorageActivity_")
+                .start();
+    }
+
+    @Click(R.id.btnFragment)
+    void clickbtnFragment() {
+        FragmentActivity_.intent(this)
+//                .myFragmentActivity("start list FragmentActivity")
+                .start();
+    }
+
+    @Click(R.id.btnService)
+    void clickbtnService() {
+        ServiceActivity_.intent(this)
+//                .myServiceActivity("start list ServiceActivity")
+                .start();
+    }
+
+    @Click(R.id.btnReceiver)
+    void clickbtnReceiver() {
+        BroadcastReceiverActivity_.intent(this)
+//                .myBroadcastReceiverActivity("start list BroadcastReceiverActivity")
+                .start();
+    }
+
+    @Click(R.id.btnToolbar)
+    void clickbtnToolbar() {
+        DemoToolbarActivity_.intent(this)
+//                .myDemoToolbarActivity("start list DemoToolbarActivity")
+                .start();
+    }
+
+    @Click(R.id.btnSending)
+    void clickbtnSending() {
+        SendingActivity_.intent(this)
+//                .mySendingActivity("start list SendingActivity")
+                .start();
+    }
+
+    @Click(R.id.btnMap)
+    void clickbtnMap() {
+        MapsActivity_.intent(this)
+//                .myMapsActivity("start list MapsActivity")
+                .start();
+    }
+
+    @Click(R.id.btnAPI)
+    void clickbtnAPI() {
+        ApiActivity_.intent(this)
+                .myMapsActivity("start list MapsActivity")
+                .start();
+    }
+
+    @Click(R.id.btnAsync)
+    void clickbtnAsync() {
+        AsyncTaskActivity_.intent(this)
+//                .myAsyncTaskActivity("start list AsyncTaskActivity")
+                .start();
+    }
 
 }

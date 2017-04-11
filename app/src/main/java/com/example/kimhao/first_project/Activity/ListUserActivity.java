@@ -14,8 +14,10 @@ import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
 import com.example.kimhao.first_project.SQLiteData.DataBaseUser;
 
-import java.util.ArrayList;
+import org.androidannotations.annotations.EActivity;
 
+import java.util.ArrayList;
+@EActivity(R.layout.activity_list_user)
 public class ListUserActivity extends AppCompatActivity implements View.OnClickListener, UserAdapter.MyOnClickListener {
 
     private ImageView mImgBack;

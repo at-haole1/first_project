@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
-import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,32 +20,29 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
-import java.util.ArrayList;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.FragmentById;
+import org.androidannotations.annotations.ViewById;
 
+import java.util.ArrayList;
+@EActivity(R.layout.activity_maps)
 public class MapsActivity extends AppCompatActivity {
     private ArrayList<MyLocation> latLngsArrayList;
     private static GoogleMap map;
-    private SupportMapFragment supportMapFragment;
-    private static ViewPager event_pager;
-
     private CustomMap customMap;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+    @FragmentById(R.id.fragmentMap)
+    SupportMapFragment supportMapFragment;
 
-        setContents();
-    }
+    @ViewById(R.id.viewPagerMap)
+    ViewPager event_pager;
 
-    private void setContents() {
+    @AfterViews
+    void afterMap(){
         latLngsArrayList = new ArrayList<>();
         latLngsArrayList.clear();
         latLngsArrayList = GlobalUtils.getLatLongArray();
-
-        event_pager = (ViewPager) findViewById(R.id.viewPagerMap);
-
-        supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMap);
 
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -140,6 +136,5 @@ public class MapsActivity extends AppCompatActivity {
 
         }
     }
-
 
 }

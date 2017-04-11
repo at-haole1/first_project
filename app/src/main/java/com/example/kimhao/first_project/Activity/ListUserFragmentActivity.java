@@ -23,7 +23,6 @@ import static android.app.Activity.RESULT_OK;
 /**
  * Created by KimHao on 25/03/2017.
  */
-
 public class ListUserFragmentActivity extends Fragment implements UserAdapter.MyOnClickListener {
     private UserAdapter mUserAdapter;
     private ArrayList<ItemUser> mListUser;

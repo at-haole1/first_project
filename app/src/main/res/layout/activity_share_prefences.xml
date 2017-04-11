@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnSave"
             android:layout_below="@+id/rgDiffLevel"
             android:layout_toRightOf="@+id/tvDiffLevel"
             android:onClick="doSave" />

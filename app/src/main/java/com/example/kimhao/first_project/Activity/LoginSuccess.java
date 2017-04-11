@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity
 public class LoginSuccess extends AppCompatActivity {
     TextView TvShow;
     @Override

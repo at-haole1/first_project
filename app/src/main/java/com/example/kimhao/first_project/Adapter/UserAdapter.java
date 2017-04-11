@@ -23,9 +23,9 @@ import java.util.ArrayList;
 /**
  * Created by KimHao on 10/03/2017.
  */
-
 public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<ItemUser> mLists = new ArrayList<>();
+
     private final Context mContext;
     private final int VIEW_PROGRESS = 0;
     private boolean mLoading;

@@ -10,13 +10,15 @@ import android.widget.Toast;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+@EActivity
 public class StorageActivity extends AppCompatActivity {
     Button mBtnReadData, mBtnSave;
     TextView mTvXuat;

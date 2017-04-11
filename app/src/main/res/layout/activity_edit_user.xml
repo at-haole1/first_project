@@ -48,7 +48,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAdd"
+            android:id="@+id/btnAddEdit"
             android:layout_below="@+id/edtAddr"
             android:text="Add"
             />
@@ -58,7 +58,7 @@
             android:id="@+id/btnDelete"
             android:layout_below="@+id/edtAddr"
             android:text="Delete"
-            android:layout_toEndOf="@+id/btnAdd"
+            android:layout_toEndOf="@+id/btnAddEdit"
             />
     </RelativeLayout>
 </LinearLayout>

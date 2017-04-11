@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity(R.layout.activity_login)
 public class ActivityLogin extends AppCompatActivity implements View.OnTouchListener {
 
     public final String USER_NAME = "admin";

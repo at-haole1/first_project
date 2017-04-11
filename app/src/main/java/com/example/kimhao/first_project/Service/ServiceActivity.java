@@ -8,10 +8,12 @@ import android.widget.Button;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
 /**
  * Created by KimHao on 28/03/2017.
  */
-
+@EActivity
 public class ServiceActivity extends AppCompatActivity {
 
 

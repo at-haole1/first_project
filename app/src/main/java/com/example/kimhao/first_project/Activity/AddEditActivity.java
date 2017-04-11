@@ -2,8 +2,6 @@ package com.example.kimhao.first_project.Activity;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -16,42 +14,50 @@ import com.example.kimhao.first_project.R;
 import com.example.kimhao.first_project.SQLiteData.DataBaseUser;
 import com.squareup.picasso.Picasso;
 
-public class AddEditActivity extends AppCompatActivity implements View.OnClickListener {
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
-    private ImageView mImgAvatar;
-    private EditText mEdtName;
-    private EditText mEdtAge;
-    private EditText mEdtAddress;
-    private Button mBtnAddEdit;
-    private Button mBtnRemove;
+@EActivity(R.layout.activity_edit_user)
+public class AddEditActivity extends AppCompatActivity implements View.OnClickListener {
+    @ViewById(R.id.imgAvatar)
+    ImageView mImgAvatar;
+
+    @ViewById(R.id.edtName)
+    EditText mEdtName;
+
+    @ViewById(R.id.edtAge)
+    EditText mEdtAge;
+
+    @ViewById(R.id.edtAddr)
+    EditText mEdtAddress;
+
+    @ViewById(R.id.btnAddEdit)
+    Button mBtnAddEdit;
+
+    @ViewById(R.id.btnDelete)
+    Button mBtnDelete;
+
     private String mValue;
     private ItemUser mUser;
     private DataBaseUser mUserDatabase = new DataBaseUser(this);
     private String path;
 
     private void init() {
-        mImgAvatar = (ImageView) findViewById(R.id.imgAvatar);
-        mEdtName = (EditText) findViewById(R.id.edtName);
-        mEdtAge = (EditText) findViewById(R.id.edtAge);
-        mEdtAddress = (EditText) findViewById(R.id.edtAddr);
-        mBtnAddEdit = (Button) findViewById(R.id.btnAdd);
-        mBtnRemove = (Button) findViewById(R.id.btnDelete);
         mImgAvatar.setOnClickListener(this);
         mBtnAddEdit.setOnClickListener(this);
-        mBtnRemove.setOnClickListener(this);
+        mBtnDelete.setOnClickListener(this);
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_user);
+    @AfterViews
+    void afterViews(){
         init();
 
         mValue = getIntent().getStringExtra("value");
 
         if (mValue.equals("add")) {
             mBtnAddEdit.setText("ADD");
-            mBtnRemove.setVisibility(View.GONE);
+            mBtnDelete.setVisibility(View.GONE);
         } else {
             mUser = getIntent().getBundleExtra("object").getParcelable("data");
             //mImgAvatar.setImageURI(Uri.parse(mUser.getImage()));
@@ -65,10 +71,9 @@ public class AddEditActivity extends AppCompatActivity implements View.OnClickLi
             mEdtAge.setText(mUser.getAge());
             mEdtAddress.setText(mUser.getAddress());
             mBtnAddEdit.setText("EDIT");
-            mBtnRemove.setVisibility(View.VISIBLE);
+            mBtnDelete.setVisibility(View.VISIBLE);
         }
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -77,7 +82,7 @@ public class AddEditActivity extends AppCompatActivity implements View.OnClickLi
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "Choose a photo"), 5);
                 break;
-            case R.id.btnAdd:
+            case R.id.btnSave:
                 if (mValue.equals("add")) { // add
                     if (!path.equals("") && mEdtName.getText().toString() != null
                             && mEdtAge.getText().toString() != null && mEdtAge.getText().toString() != null) {

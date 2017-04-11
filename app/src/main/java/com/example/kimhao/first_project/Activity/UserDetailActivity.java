@@ -12,6 +12,9 @@ import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
 import com.squareup.picasso.Picasso;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity
 public class UserDetailActivity extends AppCompatActivity {
 
     private ImageView mImgAva;
