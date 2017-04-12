@@ -44,28 +44,25 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
             Button mBtnLogin = (Button) findViewById(R.id.btnLogin);
             mTvReg = (TextView) findViewById(R.id.tvReg);
             mImgEye = (ImageView) findViewById(R.id.imgEye);
-
-
             //set onClick Button ActivityLogin
             mBtnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
 
-                    Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
+                SharedPreferences shared = getSharedPreferences("MyShare", MODE_PRIVATE);
+                SharedPreferences.Editor editor = shared.edit();
 
-                    SharedPreferences shared = getSharedPreferences("MyShare", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = shared.edit();
-
-                    editor.putString("URName", mEdtUser.getText().toString());
-                    editor.putString("URPass", mEdtPass.getText().toString());
-                    editor.commit();
-                    Log.d("dsghgdgsfghgg", "onClick: "+mEdtUser.getText().toString());
-                    Bundle bundle = new Bundle();
-                    bundle.putString("user", String.valueOf(mEdtUser.getText()));
-                    bundle.putString("pass", String.valueOf(mEdtPass.getText()));
-                    i.putExtra("Show", bundle);
-                    startActivity(i);
-                    finish();
+                editor.putString("URName", mEdtUser.getText().toString());
+                editor.putString("URPass", mEdtPass.getText().toString());
+                editor.commit();
+                Log.d("dsghgdgsfghgg", "onClick: "+mEdtUser.getText().toString());
+                Bundle bundle = new Bundle();
+                bundle.putString("user", String.valueOf(mEdtUser.getText()));
+                bundle.putString("pass", String.valueOf(mEdtPass.getText()));
+                i.putExtra("Show", bundle);
+                startActivity(i);
+                finish();
                 }
             });
 
@@ -73,18 +70,14 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
             mTvReg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(ActivityLogin.this, RegisterActivity.class);
-                    startActivity(i);
+                Intent i = new Intent(ActivityLogin.this, RegisterActivity.class);
+                startActivity(i);
                 }
             });
-
             //set Listener show password
             mImgEye.setOnTouchListener(this);
         }
     }
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -94,16 +87,11 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -114,7 +102,6 @@ public class ActivityLogin extends AppCompatActivity implements View.OnTouchList
         }else{
             mEdtPass.setInputType(129);
         }
-
         return true;
     }
 

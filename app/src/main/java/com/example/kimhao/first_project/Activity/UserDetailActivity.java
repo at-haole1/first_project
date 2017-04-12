@@ -2,9 +2,7 @@ package com.example.kimhao.first_project.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,56 +10,62 @@ import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
 import com.squareup.picasso.Picasso;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
+import org.androidannotations.annotations.ViewById;
 
-@EActivity
+@EActivity(R.layout.activity_user_detail)
 public class UserDetailActivity extends AppCompatActivity {
 
-    private ImageView mImgAva;
-    private TextView mTvName;
-    private TextView mTvAge;
-    private TextView mTvAddr;
-    private ImageView mImgFav;
-    private int mPos;
+    @ViewById(R.id.imgAva)
+    ImageView mImgAva;
+
+    @ViewById(R.id.tvName)
+    TextView mTvName;
+
+    @ViewById(R.id.tvAge)
+    TextView mTvAge;
+
+    @ViewById(R.id.tvAddr)
+    TextView mTvAddr;
+
+    @ViewById(R.id.imgFavorite)
+    ImageView mImgFav;
+
+    @Extra
+    int mPos;
+
+    @Extra
+    ItemUser mUser;
+
     private boolean isCheck;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_detail);
+    @Click(R.id.imgFavorite)
+    void clickFavorite(){
+        if (isCheck){
+            mImgFav.setSelected(!isCheck);
+        }else {
+            mImgFav.setSelected(!isCheck);
+            isCheck = true;
+        }
+        Log.d("aaaaaaaa", "onClick: "+isCheck);
+    }
 
-        mImgAva = (ImageView) findViewById(R.id.imgAva);
-        mTvName = (TextView) findViewById(R.id.tvName);
-        mTvAge = (TextView) findViewById(R.id.tvAge);
-        mTvAddr = (TextView) findViewById(R.id.tvAddr);
-        mImgFav = (ImageView) findViewById(R.id.imgFavorite);
-
-        mImgFav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isCheck){
-                    mImgFav.setSelected(!isCheck);
-                }else {
-                    mImgFav.setSelected(!isCheck);
-                    isCheck = true;
-                }
-                Log.d("aaaaaaaa", "onClick: "+isCheck);
-            }
-        });
-
-        ItemUser user = getIntent().getBundleExtra("user").getParcelable("userclick");
-        mPos = getIntent().getIntExtra("Pos",-1);
-        isCheck = user.isFavorite();
+    @AfterViews
+    void after(){
+        isCheck = mUser.isFavorite();
         Log.d("nhan ", "onCreate: 23232 " + mPos);
         Picasso.with(this)
-                .load(user.getImage())
+                .load(mUser.getImage())
                 .fit()
                 .centerCrop()
                 .into(mImgAva);
-        mTvName.setText(user.getName());
-        mTvAge.setText(user.getAge());
-        mTvAddr.setText(user.getAddress());
-        mImgFav.setSelected(user.isFavorite());
+        mTvName.setText(mUser.getName());
+        mTvAge.setText(mUser.getAge());
+        mTvAddr.setText(mUser.getAddress());
+        mImgFav.setSelected(mUser.isFavorite());
     }
 
     @Override

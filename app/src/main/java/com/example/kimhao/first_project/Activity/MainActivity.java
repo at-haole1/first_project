@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     @Click(R.id.btnAPI)
     void clickbtnAPI() {
         ApiActivity_.intent(this)
-                .myMapsActivity("start list MapsActivity")
+                .myMapsActivity("start API Activity")
                 .start();
     }
 

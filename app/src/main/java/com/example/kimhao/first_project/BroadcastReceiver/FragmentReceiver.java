@@ -71,8 +71,6 @@ public class FragmentReceiver extends Fragment {
         notifiBuilder.setSmallIcon(R.drawable.ic_home_red_700_24dp);
 
         manager.notify(1,notifiBuilder.build());
-
-
     }
 
 }
