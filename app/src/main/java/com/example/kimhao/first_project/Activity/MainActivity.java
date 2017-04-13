@@ -17,7 +17,7 @@ import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
-    @ViewById(R.id.btnLogin)
+    @ViewById(R.id.btnLoginAc)
     Button mBtnLogin;
 
     @ViewById(R.id.btnRecyclerview)
@@ -59,11 +59,9 @@ public class MainActivity extends AppCompatActivity {
     @ViewById(R.id.btnAsync)
     Button mBtnAsync;
 
-    @Click(R.id.btnLogin)
+    @Click(R.id.btnLoginAc)
         void clickBtnLogin() {
-            ActivityLogin_.intent(this)
-
-                    .start();
+            ActivityLogin_.intent(this).start();
     }
 
     @Click(R.id.btnRecyclerview)
@@ -76,70 +74,60 @@ public class MainActivity extends AppCompatActivity {
     @Click(R.id.btnMentorTai)
     void clickBtnMentorTai() {
         MentorTaiActivity_.intent(this)
-//                .myMentorTaiActivity("start list MentorTaiActivity")
                 .start();
     }
 
     @Click(R.id.btnPhoneCall)
     void clickBtnPhoneCall() {
         PhoneCallActivity_.intent(this)
-//                .myPhoneCallActivity("start list PhoneCallActivity")
                 .start();
     }
 
     @Click(R.id.btnSharedPreferences)
     void clickbtnSharedPreferences() {
         SharedPreferencesActitvity_.intent(this)
-//                .mySharedPreferencesActitvity_("start list SharedPreferencesActitvity")
                 .start();
     }
 
     @Click(R.id.btnStorage)
     void clickbtnStorage() {
         StorageActivity_.intent(this)
-//                .myStorageActivity("start list StorageActivity_")
                 .start();
     }
 
     @Click(R.id.btnFragment)
     void clickbtnFragment() {
         FragmentActivity_.intent(this)
-//                .myFragmentActivity("start list FragmentActivity")
                 .start();
     }
 
     @Click(R.id.btnService)
     void clickbtnService() {
         ServiceActivity_.intent(this)
-//                .myServiceActivity("start list ServiceActivity")
                 .start();
     }
 
     @Click(R.id.btnReceiver)
     void clickbtnReceiver() {
         BroadcastReceiverActivity_.intent(this)
-//                .myBroadcastReceiverActivity("start list BroadcastReceiverActivity")
                 .start();
     }
 
     @Click(R.id.btnToolbar)
     void clickbtnToolbar() {
         DemoToolbarActivity_.intent(this)
-//                .myDemoToolbarActivity("start list DemoToolbarActivity")
                 .start();
     }
 
     @Click(R.id.btnSending)
     void clickbtnSending() {
         SendingActivity_.intent(this)
-//                .mySendingActivity("start list SendingActivity")
                 .start();
     }
 
     @Click(R.id.btnMap)
     void clickbtnMap() {
         MapsActivity_.intent(this)
-//                .myMapsActivity("start list MapsActivity")
                 .start();
     }
 
@@ -153,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
     @Click(R.id.btnAsync)
     void clickbtnAsync() {
         AsyncTaskActivity_.intent(this)
-//                .myAsyncTaskActivity("start list AsyncTaskActivity")
                 .start();
     }
 

@@ -1,120 +1,109 @@
 package com.example.kimhao.first_project.Activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Touch;
+import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_login)
-public class ActivityLogin extends AppCompatActivity implements View.OnTouchListener {
+public class ActivityLogin extends AppCompatActivity {
 
-    public final String USER_NAME = "admin";
-    public final String PASSWORD = "123";
-    private EditText mEdtUser, mEdtPass;
-    private TextView mTvReg;
-    private ImageView mImgEye;
+     public final String USER_NAME = "admin";
+     public final String PASSWORD = "123";
 
+     @ViewById(R.id.edtUser)
+     EditText mEdtUser;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        boolean result = checkLogin();
-        if (result) {
-            Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
-            startActivity(i);
-            finish();
-        } else {
-            mEdtUser = (EditText) findViewById(R.id.edtUser);
-            mEdtPass = (EditText) findViewById(R.id.edtPass);
-            Button mBtnLogin = (Button) findViewById(R.id.btnLogin);
-            mTvReg = (TextView) findViewById(R.id.tvReg);
-            mImgEye = (ImageView) findViewById(R.id.imgEye);
-            //set onClick Button ActivityLogin
-            mBtnLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
+     @ViewById(R.id.edtPass)
+     EditText mEdtPass;
 
-                SharedPreferences shared = getSharedPreferences("MyShare", MODE_PRIVATE);
-                SharedPreferences.Editor editor = shared.edit();
+     @ViewById(R.id.tvReg)
+     TextView mTvReg;
 
-                editor.putString("URName", mEdtUser.getText().toString());
-                editor.putString("URPass", mEdtPass.getText().toString());
-                editor.commit();
-                Log.d("dsghgdgsfghgg", "onClick: "+mEdtUser.getText().toString());
-                Bundle bundle = new Bundle();
-                bundle.putString("user", String.valueOf(mEdtUser.getText()));
-                bundle.putString("pass", String.valueOf(mEdtPass.getText()));
-                i.putExtra("Show", bundle);
-                startActivity(i);
-                finish();
-                }
-            });
+     @ViewById(R.id.imgEye)
+     ImageView mImgEye;
 
-            //set onClick RegisterActivity
-            mTvReg.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                Intent i = new Intent(ActivityLogin.this, RegisterActivity.class);
-                startActivity(i);
-                }
-            });
-            //set Listener show password
-            mImgEye.setOnTouchListener(this);
-        }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+     @ViewById(R.id.btnLogin)
+     Button mBtnLogin;
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+     @ViewById(R.id.ckbRemeber)
+     CheckBox mCkbRemeber;
 
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+     @Click(R.id.tvReg)
+     void clickReg() {
+          RegisterActivity_.intent(getBaseContext()).start();
+     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        if (event.getAction()==MotionEvent.ACTION_DOWN){
-            mEdtPass.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        }else{
-            mEdtPass.setInputType(129);
-        }
-        return true;
-    }
+     @AfterViews
+     void after() {
+          boolean result = checkLogin();
+          if (result) {
+               Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
+               startActivity(i);
+          } else {
 
-    private boolean checkLogin(){
-        boolean result = false;
-        SharedPreferences share = getSharedPreferences("MyShare",MODE_PRIVATE);
-        String user = share.getString("URName","");
-        String pass = share.getString("URPass","");
+               mBtnLogin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                Intent i = new Intent(ActivityLogin.this, LoginSuccess.class);
+//                SharedPreferences shared = getSharedPreferences("MyShare", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = shared.edit();
+//
+//                editor.putString("URName", mEdtUser.getText().toString());
+//                editor.putString("URPass", mEdtPass.getText().toString());
+//                editor.commit();
+//                Log.d("dsghgdgsfghgg", "onClick: "+mEdtUser.getText().toString());
+//                Bundle bundle = new Bundle();
+//                bundle.putString("user", String.valueOf(mEdtUser.getText()));
+//                bundle.putString("pass", String.valueOf(mEdtPass.getText()));
+//                i.putExtra("Show", bundle);
+//                startActivity(i);
+//                finish();
+                    LoginSuccess_.intent(getBaseContext()).Username(mEdtUser.getText().toString()).start();
+                    }
+               });
 
-        if (user.equals(USER_NAME)&&pass.equals(PASSWORD)){
-            result =true;
-        }
-        return result;
-    }
+               //set onClick RegisterActivity
+
+               //set Listener show password
+
+          }
+     }
+
+     @Touch(R.id.imgEye)
+     boolean Touch(View v, MotionEvent event) {
+          if (event.getAction() == MotionEvent.ACTION_DOWN) {
+               mEdtPass.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+          } else {
+               mEdtPass.setInputType(129);
+          }
+          return true;
+     }
+
+     private boolean checkLogin() {
+          boolean result = false;
+          //SharedPreferences share = getSharedPreferences("MyShare", MODE_PRIVATE);
+          String user = mEdtUser.getText().toString();
+          String pass = mEdtPass.getText().toString();
+
+          if (user.equals(USER_NAME) && pass.equals(PASSWORD)) {
+               result = true;
+          }
+          return result;
+     }
 
 }

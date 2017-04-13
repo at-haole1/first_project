@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
@@ -59,19 +60,24 @@ public class AddEditActivity extends AppCompatActivity{
     @Click(R.id.btnAddEdit)
     void clickAddEdit(){
         if (mValue.equals("add")) { // add
-            if (!path.equals("") && mEdtName.getText().toString() != null
+            Log.e("value", "clickAddEdit: "+path );
+            if (path != null && mEdtName.getText().toString() != null
                     && mEdtAge.getText().toString() != null && mEdtAge.getText().toString() != null) {
                 ItemUser user = new ItemUser();
                 user.setName(mEdtName.getText().toString());
                 user.setAge(mEdtAge.getText().toString());
                 user.setAddress(mEdtAddress.getText().toString());
                 user.setImage(path);
-                Log.d("111111", "onClick: " + path);
+//                Log.d("111111", "onClick: " + path);
                 mUserDatabase.insertUser(user);
+            }else{
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
             }
         } else { // edit
+            //path = mUser.getImage();
             ItemUser user = new ItemUser(mUser.getId(), path, mEdtName.getText().toString(), mEdtAge.getText().toString(), mEdtAddress.getText().toString());
             mUserDatabase.updateUser(user);
+            Log.e("path", "clickAddEdit: "+mUser.getImage() );
         }
         ListUserActivity_.intent(getBaseContext()).start();
         finish();
@@ -94,6 +100,8 @@ public class AddEditActivity extends AppCompatActivity{
             mBtnDelete.setVisibility(View.GONE);
         } else {
             //mImgAvatar.setImageURI(Uri.parse(mUser.getImage()));
+            Log.e("aaaaaaaaaaa", "afterViews: "+mUser.getImage() );
+            path = mUser.getImage();
             Picasso.with(this)
                     .load(mUser.getImage())
                     .fit()

@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvRegister"
-            android:text="Register"
+            android:text="@string/string_text_register"
             android:layout_centerHorizontal="true"
             android:textSize="50sp"
             android:textColor="#ff2d2d"
@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sex:"
+                android:text="@string/string_text_sex"
                 android:layout_marginTop="3dp"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rdMale"
-                android:text="Male"
+                android:text="@string/string_radio_male"
                 android:layout_marginLeft="20dp"
                 android:nextFocusRight="@id/tv_sex"/>
 
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rdFemale"
-                android:text="Female"
+                android:text="@string/string_radio_female"
                 android:layout_marginLeft="20dp"
                 android:nextFocusRight="@id/rdMale"/>
         </RadioGroup>
@@ -72,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hobby"
+                android:text="@string/string_text_hobby"
                 android:id="@+id/tvHobby"
                 android:layout_below="@+id/grRd"
                 android:layout_marginTop="10dp"
@@ -86,13 +86,13 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="40dp"
                 android:layout_below="@+id/tvHobby"
-                android:text="Nghe nhạc"/>
+                android:text="@string/string_text_music"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/chkTt"
                 android:layout_below="@+id/tvHobby"
-                android:text="Thể thao"
+                android:text="@string/string_text_sport"
                 android:layout_marginLeft="40dp"
                 android:layout_toRightOf="@+id/chkNn"/>
             <CheckBox
@@ -101,7 +101,7 @@
                 android:id="@+id/chkDs"
                 android:layout_marginRight="29dp"
                 android:layout_below="@+id/chkNn"
-                android:text="Đọc sách"
+                android:text="@string/string_text_readbook"
                 android:layout_marginLeft="40dp"
                 />
             <CheckBox
@@ -111,9 +111,8 @@
                 android:layout_below="@+id/chkTt"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="40dp"
-                android:text="Khác"
+                android:text="@string/string_text_another"
                 android:layout_toRightOf="@+id/chkDs"/>
-
         </RelativeLayout>
         <Button
             android:layout_width="wrap_content"
@@ -121,8 +120,7 @@
             android:id="@+id/btnReg"
             android:layout_below="@+id/rlHobby"
             android:layout_centerHorizontal="true"
-            android:text="Register"
+            android:text="@string/string_text_register"
             android:layout_marginTop="20dp"/>
-
     </RelativeLayout>
 </LinearLayout>

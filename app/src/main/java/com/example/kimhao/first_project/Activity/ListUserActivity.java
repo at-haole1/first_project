@@ -59,7 +59,7 @@ public class ListUserActivity extends AppCompatActivity implements UserAdapter.M
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerViewListUser.setLayoutManager(mLayoutManager);
         if (mUserDatabase.getAllUsers().size() == 0) {
-            ItemUser user = new ItemUser("content://com.android.providers.media.documents/document/image%3A12", "hao", "22", "male");
+            ItemUser user = new ItemUser("content://com.android.providers.media.documents/document/image%3A185", "hao", "22", "male");
             mUserDatabase.insertUser(user);
         } else {
             mUsers = mUserDatabase.getAllUsers();

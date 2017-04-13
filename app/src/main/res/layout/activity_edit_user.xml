@@ -28,14 +28,14 @@
             android:layout_toRightOf="@+id/imgAvatar"
             android:layout_toEndOf="@+id/imgAvatar"
             android:id="@+id/edtName"
-            android:hint="Name"/>
+            android:hint="@string/string_edit_hint_name"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edtName"
             android:id="@+id/edtAge"
             android:layout_toEndOf="@+id/imgAvatar"
-            android:hint="Age"/>
+            android:hint="@string/string_edit_hint_age"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -44,20 +44,20 @@
             android:layout_below="@+id/edtAge"
             android:id="@+id/edtAddr"
             android:layout_toEndOf="@+id/imgAvatar"
-            android:hint="Address"/>
+            android:hint="@string/string_edit_hint_address"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnAddEdit"
             android:layout_below="@+id/edtAddr"
-            android:text="Add"
+            android:text="@string/string_button_add"
             />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnDelete"
             android:layout_below="@+id/edtAddr"
-            android:text="Delete"
+            android:text="@string/string_button_delete"
             android:layout_toEndOf="@+id/btnAddEdit"
             />
     </RelativeLayout>

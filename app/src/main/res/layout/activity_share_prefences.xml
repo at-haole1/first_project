@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvGameSetting"
-            android:text="Game Setting"
+            android:text="@string/string_text_gamesetting"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_alignParentTop="true"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvSound"
-            android:text="Sound"
+            android:text="@string/string_text_sound"
             android:layout_below="@+id/tvGameSetting"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Brightness:"
+            android:text="@string/string_text_brightness"
             android:id="@+id/tvBrightness"
             android:layout_below="@+id/sbSound"
             android:layout_alignParentLeft="true"
@@ -81,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Difficulty Level"
+            android:text="@string/string_text_level"
             android:id="@+id/tvDiffLevel"
             android:layout_below="@+id/sbBrightness"
             android:layout_alignParentLeft="true"
@@ -97,18 +97,17 @@
             android:layout_marginTop="35dp"
             android:orientation="horizontal"
             android:id="@+id/rgDiffLevel">
-
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Easy"
+                android:text="@string/string_radio_easy"
                 android:id="@+id/rbEasy"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Medium"
+                android:text="@string/string_radio_medium"
                 android:id="@+id/rbMedium"
                 android:checked="false"
                 android:layout_marginLeft="20dp"/>
@@ -116,7 +115,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hard"
+                android:text="@string/string_radio_hard"
                 android:id="@+id/rbHard"
                 android:checked="false"
                 android:layout_marginLeft="20dp"/>
@@ -126,7 +125,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="@string/string_button_save"
             android:id="@+id/btnSave"
             android:layout_below="@+id/rgDiffLevel"
             android:layout_toRightOf="@+id/tvDiffLevel"

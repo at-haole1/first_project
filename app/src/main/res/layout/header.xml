@@ -20,7 +20,7 @@
             android:textSize="20sp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/imgBack"
-            android:text="Welcom to Android"
+            android:text="@string/string_text_welcome"
             android:gravity="center"/>
         <ImageView
             android:layout_width="30dp"

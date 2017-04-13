@@ -61,7 +61,6 @@ public class FragmentReceiver extends Fragment {
                 break;
             default:
                 info= "\n something wrong.";
-
         }
         logger.setText("status is " + mStatus+ info);
         NotificationManager manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
