@@ -61,7 +61,6 @@ public class FragmentReceiver extends Fragment {
                 break;
             default:
                 info= "\n something wrong.";
-
         }
         logger.setText("status is " + mStatus+ info);
         NotificationManager manager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
@@ -71,8 +70,6 @@ public class FragmentReceiver extends Fragment {
         notifiBuilder.setSmallIcon(R.drawable.ic_home_red_700_24dp);
 
         manager.notify(1,notifiBuilder.build());
-
-
     }
 
 }

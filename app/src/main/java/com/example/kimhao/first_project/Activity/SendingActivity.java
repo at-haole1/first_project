@@ -14,6 +14,9 @@ import android.widget.ImageView;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity
 public class SendingActivity extends AppCompatActivity {
     public static final String ACTION_SEND_BROADCAST = "ActionSend";
 

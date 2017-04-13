@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity
 public class RegisterActivity extends AppCompatActivity implements View.OnTouchListener {
     private EditText mEdtUser,mEdtPass;
     private Button mBtnReg;

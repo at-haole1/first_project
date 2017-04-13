@@ -2,59 +2,106 @@ package com.example.kimhao.first_project.Activity;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
 import com.example.kimhao.first_project.SQLiteData.DataBaseUser;
 import com.squareup.picasso.Picasso;
 
-public class AddEditActivity extends AppCompatActivity implements View.OnClickListener {
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
+import org.androidannotations.annotations.ViewById;
 
-    private ImageView mImgAvatar;
-    private EditText mEdtName;
-    private EditText mEdtAge;
-    private EditText mEdtAddress;
-    private Button mBtnAddEdit;
-    private Button mBtnRemove;
-    private String mValue;
-    private ItemUser mUser;
+@EActivity(R.layout.activity_edit_user)
+public class AddEditActivity extends AppCompatActivity{
+    @ViewById(R.id.imgAvatar)
+    ImageView mImgAvatar;
+
+    @ViewById(R.id.edtName)
+    EditText mEdtName;
+
+    @ViewById(R.id.edtAge)
+    EditText mEdtAge;
+
+    @ViewById(R.id.edtAddr)
+    EditText mEdtAddress;
+
+    @ViewById(R.id.btnAddEdit)
+    Button mBtnAddEdit;
+
+    @ViewById(R.id.btnDelete)
+    Button mBtnDelete;
+
+    @Extra
+    int mPosition;
+
+    @Extra
+    ItemUser mUser;
+
+    @Extra
+    String mValue;
+
+    @Click(R.id.imgAvatar)
+    void clickImg(){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "Choose a photo"), 5);
+    }
+
+    @Click(R.id.btnAddEdit)
+    void clickAddEdit(){
+        if (mValue.equals("add")) { // add
+            Log.e("value", "clickAddEdit: "+path );
+            if (path != null && mEdtName.getText().toString() != null
+                    && mEdtAge.getText().toString() != null && mEdtAge.getText().toString() != null) {
+                ItemUser user = new ItemUser();
+                user.setName(mEdtName.getText().toString());
+                user.setAge(mEdtAge.getText().toString());
+                user.setAddress(mEdtAddress.getText().toString());
+                user.setImage(path);
+//                Log.d("111111", "onClick: " + path);
+                mUserDatabase.insertUser(user);
+            }else{
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        } else { // edit
+            //path = mUser.getImage();
+            ItemUser user = new ItemUser(mUser.getId(), path, mEdtName.getText().toString(), mEdtAge.getText().toString(), mEdtAddress.getText().toString());
+            mUserDatabase.updateUser(user);
+            Log.e("path", "clickAddEdit: "+mUser.getImage() );
+        }
+        ListUserActivity_.intent(getBaseContext()).start();
+        finish();
+    }
+
+    @Click(R.id.btnDelete)
+    void clickDelete(){
+        mUserDatabase.deleteUser(mUser.getId());
+        ListUserActivity_.intent(getBaseContext()).start();
+        finish();
+    }
+
     private DataBaseUser mUserDatabase = new DataBaseUser(this);
     private String path;
 
-    private void init() {
-        mImgAvatar = (ImageView) findViewById(R.id.imgAvatar);
-        mEdtName = (EditText) findViewById(R.id.edtName);
-        mEdtAge = (EditText) findViewById(R.id.edtAge);
-        mEdtAddress = (EditText) findViewById(R.id.edtAddr);
-        mBtnAddEdit = (Button) findViewById(R.id.btnAdd);
-        mBtnRemove = (Button) findViewById(R.id.btnDelete);
-        mImgAvatar.setOnClickListener(this);
-        mBtnAddEdit.setOnClickListener(this);
-        mBtnRemove.setOnClickListener(this);
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_user);
-        init();
-
-        mValue = getIntent().getStringExtra("value");
-
+    @AfterViews
+    void afterViews(){
         if (mValue.equals("add")) {
             mBtnAddEdit.setText("ADD");
-            mBtnRemove.setVisibility(View.GONE);
+            mBtnDelete.setVisibility(View.GONE);
         } else {
-            mUser = getIntent().getBundleExtra("object").getParcelable("data");
             //mImgAvatar.setImageURI(Uri.parse(mUser.getImage()));
+            Log.e("aaaaaaaaaaa", "afterViews: "+mUser.getImage() );
+            path = mUser.getImage();
             Picasso.with(this)
                     .load(mUser.getImage())
                     .fit()
@@ -65,51 +112,13 @@ public class AddEditActivity extends AppCompatActivity implements View.OnClickLi
             mEdtAge.setText(mUser.getAge());
             mEdtAddress.setText(mUser.getAddress());
             mBtnAddEdit.setText("EDIT");
-            mBtnRemove.setVisibility(View.VISIBLE);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.imgAvatar:
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(Intent.createChooser(intent, "Choose a photo"), 5);
-                break;
-            case R.id.btnAdd:
-                if (mValue.equals("add")) { // add
-                    if (!path.equals("") && mEdtName.getText().toString() != null
-                            && mEdtAge.getText().toString() != null && mEdtAge.getText().toString() != null) {
-                        ItemUser user = new ItemUser();
-                        user.setName(mEdtName.getText().toString());
-                        user.setAge(mEdtAge.getText().toString());
-                        user.setAddress(mEdtAddress.getText().toString());
-                        user.setImage(path);
-                        Log.d("111111", "onClick: " + path);
-                        mUserDatabase.insertUser(user);
-                    }
-                } else { // edit
-                    ItemUser user = new ItemUser(mUser.getId(), path, mEdtName.getText().toString(), mEdtAge.getText().toString(), mEdtAddress.getText().toString());
-                    mUserDatabase.updateUser(user);
-                }
-                Intent it = new Intent(AddEditActivity.this, ListUserActivity.class);
-                startActivity(it);
-                finish();
-                break;
-            case R.id.btnDelete:
-                Intent i = new Intent(AddEditActivity.this, ListUserActivity.class);
-                mUserDatabase.deleteUser(mUser.getId());
-                startActivity(i);
-                finish();
-                break;
+            mBtnDelete.setVisibility(View.VISIBLE);
         }
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, ListUserActivity.class);
-        startActivity(intent);
+        ListUserActivity_.intent(getBaseContext());
         finish();
     }
 

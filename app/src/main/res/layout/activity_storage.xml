@@ -18,7 +18,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnReadData"
-            android:text="Read Data"
+            android:text="@string/string_button_readdata"
             android:onClick="readData"/>
         <EditText
             android:layout_width="fill_parent"
@@ -41,7 +41,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnSaveData"
-            android:text="Save Data"
+            android:text="@string/string_button_savedata"
             android:onClick="doSaveData"/>
     </LinearLayout>
 </LinearLayout>

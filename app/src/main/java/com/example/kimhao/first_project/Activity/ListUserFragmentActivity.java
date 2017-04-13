@@ -7,14 +7,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.kimhao.first_project.Adapter.UserAdapter;
 import com.example.kimhao.first_project.Model.ItemUser;
 import com.example.kimhao.first_project.R;
 import com.example.kimhao.first_project.SQLiteData.DataBaseUser;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 
@@ -23,11 +24,15 @@ import static android.app.Activity.RESULT_OK;
 /**
  * Created by KimHao on 25/03/2017.
  */
-
+@EFragment(R.layout.activity_list_user)
 public class ListUserFragmentActivity extends Fragment implements UserAdapter.MyOnClickListener {
     private UserAdapter mUserAdapter;
     private ArrayList<ItemUser> mListUser;
     private final int REQUES_CODE = 411;
+
+    @ViewById(R.id.recyclerViewListUser)
+    RecyclerView recyclerView;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,29 +46,39 @@ public class ListUserFragmentActivity extends Fragment implements UserAdapter.My
         }
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_list_user,container,false);
-        RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerViewListUser);
+    @AfterViews
+    void afterview(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        mUserAdapter = new UserAdapter(v.getContext(),mListUser,recyclerView,this);
+        mUserAdapter = new UserAdapter(getContext(),mListUser,recyclerView,this);
         recyclerView.setAdapter(mUserAdapter);
         mUserAdapter.notifyDataSetChanged();
-        return v;
     }
+//    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        View v = inflater.inflate(R.layout.activity_list_user,container,false);
+//        RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerViewListUser);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//        mUserAdapter = new UserAdapter(v.getContext(),mListUser,recyclerView,this);
+//        recyclerView.setAdapter(mUserAdapter);
+//        mUserAdapter.notifyDataSetChanged();
+//        return v;
+//    }
 
     @Override
     public void onClickListener(int position) {
+
         ItemUser user = mListUser.get(position);
-        Intent intent = new Intent(getActivity(),UserDetailActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("userclick",user);
-        intent.putExtra("user",bundle);
-        intent.putExtra("Pos",position);
-        Log.d("position", "onClickListener: "+position);
-        startActivityForResult(intent,REQUES_CODE);
+//        Intent intent = new Intent(getActivity(),UserDetailActivity.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putParcelable("userclick",user);
+//        intent.putExtra("user",bundle);
+//        intent.putExtra("Pos",position);
+//        Log.d("position", "onClickListener: "+position);
+        UserDetailActivity_.intent(getContext()).mPos(position).mUser(user).startForResult(REQUES_CODE);
+//        startActivityForResult(intent,REQUES_CODE);
     }
 
     @Override

@@ -23,7 +23,7 @@ tools:context="com.example.kimhao.first_project.Activity.SendingActivity">
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:text="Send"
+        android:text="@string/string_button_send"
         android:layout_gravity="center"/>
 
 </LinearLayout>

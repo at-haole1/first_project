@@ -29,7 +29,7 @@
             android:value="AIzaSyDLn2sTfBYdCPMd6jw-TChESvc14KmOXQg"  />
 
         <activity
-            android:name=".API.ApiActivity_"
+            android:name=".Activity.MainActivity_"
             android:label="AT_Inter"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -60,49 +60,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Activity.RegisterActivity_" />
         <activity
-            android:name=".Activity.ListUserActivity"
-            android:label="@string/title_activity_recycler_view"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Activity.ListUserActivity_" />
         <activity
-            android:name=".Activity.ActivityLogin"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Activity.ActivityLogin_" />
         <activity
-            android:name=".Activity.AddEditActivity"
-            android:label="@string/title_activity_data__transfer__recycler_view"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Activity.AddEditActivity_"/>
         <activity
-            android:name=".Activity.PhoneCallActivity"
-            android:label="@string/title_activity_phone__call"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Activity.PhoneCallActivity_" />
         <activity
-            android:name=".Activity.MentorTaiActivity"
-            android:label="@string/title_activity_mentor__tai"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".Activity.MentorTaiActivity_"/>
         <activity
-            android:name=".SharedPreferences.SharedPreferencesActitvity"
-            android:label="@string/title_activity_shared_preferences"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".SharedPreferences.SharedPreferencesActitvity_" />
         <activity
-            android:name=".Storage.StorageActivity"
-            android:label="@string/title_activity_storage"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.UserDetailActivity" />
+            android:name=".Storage.StorageActivity_"/>
+        <activity android:name=".Activity.UserDetailActivity_" />
         <activity
-            android:name=".Activity.LoginSuccess"
-            android:label="LoginSuccess" />
+            android:name=".Activity.LoginSuccess_"/>
         <activity
-            android:name=".Activity.FragmentActivity"
-            android:label="Fragment" />
+            android:name=".Activity.FragmentActivity_"/>
         <activity
-            android:name=".Service.ServiceActivity"
-            android:label="Serice" />
+            android:name=".Service.ServiceActivity_" />
 
-        <service android:name=".Service.MyService" />
+        <service android:name=".Service.MyService"/>
 
         <receiver android:name=".BroadcastReceiver.MyBroadcastReceiver">
             <intent-filter>
@@ -113,8 +94,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity" />
-        <activity android:name=".Activity.SendingActivity">
+        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity_" />
+        <activity android:name=".Activity.SendingActivity_">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEND" />
@@ -126,8 +107,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.DemoToolbarActivity" />
-        <activity android:name=".Maps.MapsActivity"/>
-        <activity android:name=".Activity.AsyncTaskActivity"/>
+        <activity android:name=".Activity.DemoToolbarActivity_" />
+        <activity android:name=".Maps.MapsActivity_"/>
+        <activity android:name=".Activity.AsyncTaskActivity_"/>
+        <activity android:name=".API.ApiActivity_"/>
     </application>
 </manifest>

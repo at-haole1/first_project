@@ -1,9 +1,11 @@
 package com.example.kimhao.first_project.Adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +25,9 @@ import java.util.ArrayList;
 /**
  * Created by KimHao on 10/03/2017.
  */
-
 public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<ItemUser> mLists = new ArrayList<>();
+
     private final Context mContext;
     private final int VIEW_PROGRESS = 0;
     private boolean mLoading;
@@ -97,14 +99,16 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 ItemUser user = (ItemUser) object;
                 if (!TextUtils.isEmpty(user.getImage())){
                     Picasso.with(mContext)
-                            .load(user.getImage())
+                            .load(Uri.parse(user.getImage()))
                             .fit()
                             .centerCrop()
-                            .error(R.drawable.ic_person)
+//                            .error(user.getImage())
                             .into(((ViewHolder) holder).mImgAvatar);
+                    Log.e("TAG", "onBindViewHolder: "+Uri.parse(user.getImage()));
                 } else {
                     ((ViewHolder) holder).mImgAvatar.setImageResource(R.drawable.ic_user);
                 }
+                Log.e("bbbb", "onBindViewHolder: "+ user.getImage());
                 ((ViewHolder) holder).mTvName.setText(user.getName());
                 ((ViewHolder) holder).mTvAge.setText(user.getAge());
                 ((ViewHolder) holder).mTvAddress.setText(user.getAddress());

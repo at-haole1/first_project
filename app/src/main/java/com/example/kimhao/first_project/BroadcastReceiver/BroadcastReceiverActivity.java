@@ -7,11 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
+
 /**
  * Created by KimHao on 28/03/2017.
  */
-
+@EActivity(R.layout.activity_receiver)
 public class BroadcastReceiverActivity extends AppCompatActivity {
+    @Extra
+    int mStatus;
+
     FragmentReceiver mFragmentReceiver = null;
 
     @Override

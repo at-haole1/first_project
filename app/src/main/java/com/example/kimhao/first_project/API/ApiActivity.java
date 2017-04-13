@@ -16,6 +16,7 @@ import com.example.kimhao.first_project.R;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ import retrofit2.Response;
  */
 @EActivity(R.layout.activity_api)
 public class ApiActivity extends AppCompatActivity{
+    @Extra
+    String myMapsActivity;
 
     @ViewById(R.id.recyclerViewApi)
     RecyclerView mRecyclerView;
@@ -41,8 +44,8 @@ public class ApiActivity extends AppCompatActivity{
 
     @AfterViews
     void afterViews(){
-        setSupportActionBar(toolbar);
-
+        //setSupportActionBar(toolbar);
+        Toast.makeText(this, myMapsActivity, Toast.LENGTH_SHORT).show();
         mService  = ApiUtils.getSOService();
 
         mAdapter = new AnswersAdapter(this, new ArrayList<Item>(0),new AnswersAdapter.PostItemListener(){

@@ -20,6 +20,9 @@ import android.widget.ImageView;
 
 import com.example.kimhao.first_project.R;
 
+import org.androidannotations.annotations.EActivity;
+
+@EActivity
 public class MentorTaiActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnCall, btnMessenger, btnMail, btnWeb, btnCHPlay, btnMap, btnSelect, btnCamera;
     ImageView imgPic;

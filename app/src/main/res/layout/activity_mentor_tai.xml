@@ -18,55 +18,55 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Call"
+            android:text="@string/string_button_call"
             android:id="@+id/btnCall"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Messenger"
+            android:text="@string/string_button_messenger"
             android:id="@+id/btnMessenger"
             android:layout_below="@id/btnCall"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mail"
+            android:text="@string/string_button_mail"
             android:id="@+id/btnMail"
             android:layout_below="@id/btnMessenger"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="vnexpress.net"
+            android:text="@string/string_button_web"
             android:id="@+id/btnWeb"
             android:layout_below="@id/btnMail"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Open Google Play Store"
+            android:text="@string/string_button_chplay"
             android:id="@+id/btnCHPlay"
             android:layout_below="@id/btnWeb"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Open Google Map"
+            android:text="@string/string_button_openmap"
             android:id="@+id/btnMap"
             android:layout_below="@id/btnCHPlay"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Picture"
+            android:text="@string/string_button_selectpicture"
             android:id="@+id/btnPicture"
             android:layout_below="@id/btnMap"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Camera"
+            android:text="@string/string_button_camera"
             android:id="@+id/btnCamera"
             android:layout_below="@id/btnPicture"/>
 

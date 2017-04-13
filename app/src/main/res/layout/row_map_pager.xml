@@ -39,14 +39,14 @@
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:id="@+id/tvLatitude"
-            android:text="Latitude"
+            android:text="@string/string_text_lati"
             android:textColor="#FF131F71"
             android:textSize="18sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvLongitude"
-            android:text="Longitude"
+            android:text="@string/string_text_longi"
             android:padding="4dp"
             android:textColor="#FF131F71"
             android:textSize="18sp"/>

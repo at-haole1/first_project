@@ -5,93 +5,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical">
-    <RelativeLayout
-        android:id="@+id/content_main"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="623dp"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnLoginAc"
             android:layout_centerHorizontal="true"
-            android:text="Login"/>
+            android:text="@string/string_text_login"/>
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnRecyclerview"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnLogin"
-            android:text="RecyclerView"/>
+            android:text="@string/string_button_recyclerview"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnPhoneCall"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnRecyclerview"
-            android:text="Phone Call"
+            android:text="@string/string_button_phone"
             />
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnMentorTai"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btnPhoneCall"
-            android:text="Mentor_Tai"
+            android:text="@string/string_button_mentortai"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnSharedPreferences"
-            android:layout_below="@+id/btnMentorTai"
-            android:text="SharedPreferences"/>
+            android:text="@string/string_button_share"/>
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnStorage"
-            android:layout_below="@+id/btnSharedPreferences"
-            android:text="Storage"/>
+            android:text="@string/string_button_storage"/>
+     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnFragment"
-            android:layout_below="@+id/btnStorage"
-            android:text="Fragment"/>
+            android:text="@string/string_button_fragment"/>
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnService"
-            android:layout_below="@+id/btnFragment"
-            android:text="Service"/>
+            android:text="@string/string_button_service"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnReceiver"
-            android:layout_below="@+id/btnService"
-            android:text="Receiver"/>
+            android:text="@string/string_button_receiver"/>
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnSending"
-            android:layout_below="@+id/btnReceiver"
-            android:text="Sending"/>
+            android:text="@string/string_button_sending"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnToolbar"
-            android:layout_below="@+id/btnSending"
-            android:text="Toolbar"/>
+            android:text="@string/string_button_toolbar"/>
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
             android:id="@+id/btnMap"
-            android:layout_below="@+id/btnToolbar"
-            android:text="Map"/>
-    </RelativeLayout>
+            android:text="@string/string_button_map"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAPI"
+            android:text="@string/string_button_api"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAsync"
+            android:text="@string/string_button_async"/>
+    </LinearLayout>
+
 </LinearLayout>

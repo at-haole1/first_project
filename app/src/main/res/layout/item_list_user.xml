@@ -12,28 +12,28 @@
         android:id="@+id/imgAva"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_person"/>
+        android:src="@drawable/ic_person"
+        android:layout_marginRight="10dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgAva"
         android:id="@+id/tvName"
-        android:text="Name"/>
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgAva"
         android:layout_below="@+id/tvName"
         android:id="@+id/tvAge"
-        android:text="Age"/>
-
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgAva"
         android:layout_below="@+id/tvAge"
         android:id="@+id/tvAddr"
-        android:text="Address"/>
+        />
     <ImageView
         android:id="@+id/imgFavorite"
         android:layout_width="25dp"

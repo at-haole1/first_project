@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.kimhao.first_project.Activity.DemoToolbarActivity">
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="#2196F3"
-        android:minHeight="?attr/actionBarSize">
-    </android.support.v7.widget.Toolbar>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
